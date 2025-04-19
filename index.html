@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PortFolio</title>
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="dark-mode.css" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -13,6 +14,49 @@
     />
   </head>
   <body>
+    <!-- Dark Mode Toggle Button -->
+    <button
+      id="darkModeToggle"
+      class="dark-mode-toggle"
+      aria-label="Toggle Dark Mode"
+    >
+      <svg
+        class="moon-icon"
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+      </svg>
+      <svg
+        class="sun-icon"
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <circle cx="12" cy="12" r="5"></circle>
+        <line x1="12" y1="1" x2="12" y2="3"></line>
+        <line x1="12" y1="21" x2="12" y2="23"></line>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+        <line x1="1" y1="12" x2="3" y2="12"></line>
+        <line x1="21" y1="12" x2="23" y2="12"></line>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+      </svg>
+    </button>
     <!-- Hero Section -->
 
     <section class="HeroSection">
@@ -41,15 +85,20 @@
             </p>
 
             <h5>Email Me, I would Love to work with Like Minded People!</h5>
-            <br>
+            <br />
             <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-              <button type="button" class="btn btn-dark btn-lg px-4 me-md-2" onclick="window.location.href='mailto:pratiyushkuchhal@gmail.com'">
+              <button
+                type="button"
+                class="btn btn-dark btn-lg px-4 me-md-2 contact-button"
+                onclick="window.location.href='mailto:pratiyushkuchhal@gmail.com'"
+              >
                 Contact Me
               </button>
               <button
                 type="button"
                 class="btn btn-outline-dark btn-lg px-4"
-                onclick="document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });">
+                onclick="document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });"
+              >
                 Projects
               </button>
             </div>
@@ -57,108 +106,208 @@
         </div>
       </div>
     </section>
-        
-        <!-- Projects -->
-        
-<hr>
 
-  
-  <div class="container">
-    <h1 id="projects" class="mt-5 mb-5 fw-bold text-Start text-sm-center">My Projects</h1>
-  
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+    <!-- Projects -->
 
-            <!-- Project Card -->
-            <div class="col-sm-10 offset-sm-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0">
-              <div class="card h-100 d-flex flex-column shadow-sm rounded-4">
-                <img src="./images/Projects/TinDog.png" class="card-img-top project-img rounded-top-4" alt="Causeway App">
-                <div class="card-body d-flex flex-column">
-                  <h4>TinDog</h4>
-                  <p class="card-text">
-                    I Designed a Landing Page for a App, its Like the Dating App Tinder but for Dogs.
-                  </p>
-                  <div class="mt-auto">
-                    <a href="https://tinder-but-for-dogs.vercel.app/" class="btn btn-sm btn-outline-dark">View</a>
-                  </div>
-                </div>
-              </div>
-            </div>
+    <hr />
 
-                  <!-- Project Card -->
-      <div class="col-sm-10 offset-sm-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0">
-        <div class="card h-100 d-flex flex-column shadow-sm rounded-4">
-          <img src="./images/Projects/Causeway.png" class="card-img-top project-img rounded-top-4" alt="Causeway App">
-          <div class="card-body d-flex flex-column">
-            <h4>Causeway</h4>
-            <p class="card-text">
-              A UX/UI Design for an app where users volunteer to fix community problems and earn rewards for their actions
-            </p>
-            <div class="mt-auto">
-              <a href="https://www.figma.com/design/qTIFz2HWxLFwJiPy1Xgz6J/Causeway-App?node-id=0-1&t=QxAdBZX9ZXV2Kqi8-1" class="btn btn-sm btn-outline-dark">View</a>
-            </div>
-          </div>
-        </div>
-      </div>
-  
-      <!-- Project Card -->
-      <div class="col-sm-10 offset-sm-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0">
+    <div class="container">
+      <h1 id="projects" class="mt-5 mb-5 fw-bold text-Start text-sm-center">
+        My Projects
+      </h1>
+
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        <!-- Project Card -->
+        <div
+          class="col-sm-10 offset-sm-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0"
+        >
           <div class="card h-100 d-flex flex-column shadow-sm rounded-4">
-          <img src="./images/Projects/MedicalAssistant.png" class="card-img-top project-img rounded-top-4" alt="AI Powered Medical Assistant">
-          <div class="card-body d-flex flex-column">
-            <h4>AI Powered Medical Assistant</h4>
-            <p class="card-text">
-              An AI model that provide potentials diagnoses, causes, and recovery advice.
-            </p>
-            <div class="mt-auto">
-              <a href="https://github.com/JustPratiyush/AI-Powered-Medical-Assistant" class="btn btn-sm btn-outline-dark">View</a>
-            </div>
-          </div>
-        </div>
-      </div>
-  
-
-  
-      <!-- Coming Soon -->
-      <div class="col-sm-10 offset-sm-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0">
-        <div class="card h-100 d-flex flex-column shadow-sm rounded-4">
-          <img src="./images/Projects/ComingSoon.png" class="card-img-top project-img rounded-top-4" alt="Coming Soon">
-          <div class="card-body d-flex flex-column">
-            <h4>More Projects Coming Soon!</h4>
-            <p class="card-text">Btw, do you Like my Website? :)</p>
-            <div class="mt-auto">
-              <a href="#" class="btn btn-sm btn-outline-dark">View</a>
-            </div>
-          </div>
-        </div>
-      </div>
-  
-    </div>
-  </div>
-  
-
-
-        <!-- Footer -->
-
-        <div class="container">
-            <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-              <div class="col-md-4 d-flex align-items-center">
-                <a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1" aria-label="Bootstrap">
-                </a>
-                <span class="mb-3 mb-md-0 text-body-secondary">© 2025 AbhinavKuchhal, Inc</span>
+            <img
+              src="./images/Projects/TinDog.png"
+              class="card-img-top project-img rounded-top-4"
+              alt="Causeway App"
+            />
+            <div class="card-body d-flex flex-column">
+              <h4>TinDog</h4>
+              <p class="card-text">
+                I Designed a Landing Page for a App, its Like the Dating App
+                Tinder but for Dogs.
+              </p>
+              <div class="mt-auto">
+                <a
+                  href="https://tinder-but-for-dogs.vercel.app/"
+                  class="btn btn-sm btn-outline-dark"
+                  >View</a
+                >
               </div>
-          
-              <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-                <li class="ms-3"><a class="text-body-secondary" href="https://www.instagram.com/justpratiyush/" aria-label="Instagram"><img src="./images/instagram.svg" class="bi" width="24" height="24" aria-hidden="true"><use xlink:href="#instagram"></use></svg></a></li>
-                <li class="ms-3"><a class="text-body-secondary" href="https://github.com/JustPratiyush" aria-label="Github"><img src="./images/github.svg" class="bi" width="24" height="24"><use xlink:href="#Github"></use></svg></a></li>
-                <li class="ms-3"><a class="text-body-secondary" href="https://x.com/JustPratiyush" aria-label="Github"><img src="./images/twitter-x.svg" class="bi" width="24" height="24"><use xlink:href="#Twitter"></use></svg></a></li>
-              </ul>
-            </footer>
+            </div>
           </div>
+        </div>
 
+        <!-- Project Card -->
+        <div
+          class="col-sm-10 offset-sm-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0"
+        >
+          <div class="card h-100 d-flex flex-column shadow-sm rounded-4">
+            <img
+              src="./images/Projects/Causeway.png"
+              class="card-img-top project-img rounded-top-4"
+              alt="Causeway App"
+            />
+            <div class="card-body d-flex flex-column">
+              <h4>Causeway</h4>
+              <p class="card-text">
+                A UX/UI Design for an app where users volunteer to fix community
+                problems and earn rewards for their actions
+              </p>
+              <div class="mt-auto">
+                <a
+                  href="https://www.figma.com/design/qTIFz2HWxLFwJiPy1Xgz6J/Causeway-App?node-id=0-1&t=QxAdBZX9ZXV2Kqi8-1"
+                  class="btn btn-sm btn-outline-dark"
+                  >View</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project Card -->
+        <div
+          class="col-sm-10 offset-sm-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0"
+        >
+          <div class="card h-100 d-flex flex-column shadow-sm rounded-4">
+            <img
+              src="./images/Projects/MedicalAssistant.png"
+              class="card-img-top project-img rounded-top-4"
+              alt="AI Powered Medical Assistant"
+            />
+            <div class="card-body d-flex flex-column">
+              <h4>AI Powered Medical Assistant</h4>
+              <p class="card-text">
+                An AI model that provide potentials diagnoses, causes, and
+                recovery advice.
+              </p>
+              <div class="mt-auto">
+                <a
+                  href="https://github.com/JustPratiyush/AI-Powered-Medical-Assistant"
+                  class="btn btn-sm btn-outline-dark"
+                  >View</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Coming Soon -->
+        <div
+          class="col-sm-10 offset-sm-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0"
+        >
+          <div class="card h-100 d-flex flex-column shadow-sm rounded-4">
+            <img
+              src="./images/Projects/ComingSoon.png"
+              class="card-img-top project-img rounded-top-4"
+              alt="Coming Soon"
+            />
+            <div class="card-body d-flex flex-column">
+              <h4>More Projects Coming Soon!</h4>
+              <p class="card-text">Btw, do you Like my Website? :)</p>
+              <div class="mt-auto">
+                <a href="#" class="btn btn-sm btn-outline-dark">View</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+
+    <div class="container">
+      <footer
+        class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top"
+      >
+        <div class="col-md-4 d-flex align-items-center">
+          <a
+            href="/"
+            class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1"
+            aria-label="Bootstrap"
+          >
+          </a>
+          <span class="mb-3 mb-md-0 text-body-secondary"
+            >© 2025 AbhinavKuchhal, Inc</span
+          >
+        </div>
+
+        <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+          <li class="ms-3">
+            <a
+              class="text-body-secondary"
+              href="https://www.instagram.com/justpratiyush/"
+              aria-label="Instagram"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="currentColor"
+                class="bi bi-instagram"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"
+                />
+              </svg>
+            </a>
+          </li>
+          <li class="ms-3">
+            <a
+              class="text-body-secondary"
+              href="https://github.com/JustPratiyush"
+              aria-label="Github"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="currentColor"
+                class="bi bi-github"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"
+                />
+              </svg>
+            </a>
+          </li>
+          <li class="ms-3">
+            <a
+              class="text-body-secondary"
+              href="https://x.com/JustPratiyush"
+              aria-label="Twitter/X"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="currentColor"
+                class="bi bi-twitter-x"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"
+                />
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </footer>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+      crossorigin="anonymous"
+    ></script>
+    <script src="dark-mode.js"></script>
   </body>
-  <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
-    crossorigin="anonymous"
-  ></script>
 </html>

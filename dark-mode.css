@@ -1,0 +1,104 @@
+/* Dark mode toggle button styles */
+.dark-mode-toggle {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  z-index: 1000;
+  border: none;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background-color: #f8f9fa;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+[data-bs-theme="dark"] .dark-mode-toggle {
+  background-color: #212529;
+}
+
+.dark-mode-toggle:hover {
+  transform: scale(1.1);
+}
+
+.sun-icon,
+.moon-icon {
+  width: 24px;
+  height: 24px;
+  transition: opacity 0.3s ease, transform 0.5s ease;
+}
+
+.sun-icon {
+  opacity: 0;
+  position: absolute;
+  color: #212529;
+}
+
+.moon-icon {
+  opacity: 1;
+  color: #212529;
+}
+
+[data-bs-theme="dark"] .sun-icon {
+  opacity: 1;
+  color: #f8f9fa;
+}
+
+[data-bs-theme="dark"] .moon-icon {
+  opacity: 0;
+  color: #f8f9fa;
+}
+
+/* Additional dark mode styles */
+[data-bs-theme="dark"] {
+  color-scheme: dark;
+}
+
+[data-bs-theme="dark"] body {
+  background-color: #121212;
+  color: #f8f9fa;
+}
+
+[data-bs-theme="dark"] .card {
+  background-color: #2b3035;
+  border-color: #495057;
+}
+
+[data-bs-theme="dark"] .text-body-emphasis {
+  color: #f8f9fa !important;
+}
+
+[data-bs-theme="dark"] .text-body-secondary {
+  color: #adb5bd !important;
+}
+
+[data-bs-theme="dark"] .btn-outline-dark {
+  color: #f8f9fa;
+  border-color: #f8f9fa;
+}
+
+[data-bs-theme="dark"] hr {
+  border-color: white;
+}
+
+/* Normal state (light mode) - button remains dark */
+.contact-button {
+  background-color: #212529;
+  color: #fff;
+  border-color: #212529;
+}
+
+/* Dark mode - button becomes white */
+[data-bs-theme="dark"] .contact-button {
+  background-color: #f8f9fa;
+  color: #212529;
+  border-color: #f8f9fa;
+}
+
+hr {
+  color: white;
+}
