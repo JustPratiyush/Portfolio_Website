@@ -3,5 +3,48 @@
   object-fit: cover;
 }
 
-@media screen and (max-width: 991px) {
+.NiceFont {
+  font-family: "Dancing Script", cursive;
+}
+
+* {
+  font-family: "Poppins", sans-serif;
+}
+
+/* NEW: Style for the wrapper */
+.headline-wrapper {
+  display: inline-block; /* Makes the wrapper only as wide as its content (the h1) */
+  position: relative; /* Optional: useful for potential future positioning inside */
+  /* max-width: 100%; Optional: Prevents overflow if text is extremely long */
+}
+
+.HeroText h1 {
+  margin-bottom: 0; /* Keep h1 margin bottom 0 */
+  /* display: inline-block; /* No longer needed on h1 itself */
+}
+
+.stroke {
+  /* width: 100%; /* Keep this (it's inline in the HTML now, which is fine too) */
+  height: auto; /* Allows height to scale proportionally based on viewBox and width */
+  display: block; /* Prevents extra space below SVG */
+  vertical-align: bottom; /* Helps alignment */
+  margin-top: -0.2em; /* Pulls the stroke closer to the text baseline. Adjust this value as needed (e.g., -5px, -0.1em) */
+  /* max-width: 100%; Optional: ensures it doesn't exceed wrapper */
+}
+
+.stroke path {
+  fill: currentColor; /* Good practice: inherits text color */
+}
+
+.lead {
+  padding-top: 50px;
+}
+
+/* Fix the syntax error (extra '{') if you keep the blocks for other rules */
+@media screen and (max-width: 991px) and (min-width: 768px) {
+  /* Add other responsive styles here if needed */
+}
+
+@media screen and (max-width: 767px) {
+  /* Add other responsive styles here if needed */
 }
