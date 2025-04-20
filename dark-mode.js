@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const darkModeToggle = document.getElementById("darkModeToggle");
   const htmlElement = document.documentElement;
+  const toggleSound = document.getElementById("toggle-sound");
 
   // Check for saved theme preference or use preferred color scheme
   const savedTheme = localStorage.getItem("theme");
@@ -17,6 +18,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Toggle theme when button is clicked
   darkModeToggle.addEventListener("click", () => {
+    // Play the toggle sound
+    toggleSound.currentTime = 0; // Rewind to start
+    toggleSound.play();
+
     const currentTheme = htmlElement.getAttribute("data-bs-theme");
     const newTheme = currentTheme === "dark" ? "light" : "dark";
 
