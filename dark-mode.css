@@ -125,3 +125,49 @@ hr {
   height: 35px;
   background-color: white;
 }
+
+/* Transition Animation */
+
+/* Theme transition animation */
+#theme-transition-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  pointer-events: none;
+  z-index: 9998;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.theme-transitioning #theme-transition-overlay {
+  opacity: 1;
+}
+
+[data-bs-theme="light"] #theme-transition-overlay {
+  background-color: rgba(255, 255, 255, 0.85);
+}
+
+[data-bs-theme="dark"] #theme-transition-overlay {
+  background-color: rgba(0, 0, 0, 0.85);
+}
+
+/* Add smooth transitions to all elements */
+body,
+.card,
+button,
+a,
+.skill-tag,
+#custom-cursor,
+.dark-mode-toggle {
+  transition: background-color 0.5s ease, color 0.5s ease,
+    border-color 0.5s ease, box-shadow 0.5s ease !important;
+}
+
+/* Add a fun rotation animation to toggle button */
+.dark-mode-toggle.clicked {
+  transform: rotate(360deg) scale(1.1);
+  transition: transform 0.5s ease !important;
+}
