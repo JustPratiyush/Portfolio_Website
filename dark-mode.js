@@ -30,3 +30,30 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 300);
   });
 });
+
+// Add this to your existing dark-mode.js file or create a new skills.js file
+document.addEventListener("DOMContentLoaded", () => {
+  // Function to animate skills when they come into view
+  function animateSkillsOnScroll() {
+    const skillItems = document.querySelectorAll(".skill-item");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("animate");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    skillItems.forEach((item) => {
+      observer.observe(item);
+    });
+  }
+
+  // Initialize animation
+  animateSkillsOnScroll();
+});

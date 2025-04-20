@@ -56,6 +56,10 @@
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
 }
 
+.Projects-Container {
+  margin-bottom: 100px;
+}
+
 /* Fix the syntax error (extra '{') if you keep the blocks for other rules */
 @media screen and (max-width: 991px) and (min-width: 768px) {
   /* Add other responsive styles here if needed */
@@ -63,4 +67,32 @@
 
 @media screen and (max-width: 767px) {
   /* Add other responsive styles here if needed */
+}
+
+/* Skills Section Styles */
+.skills-section {
+  padding: 50px 0;
+}
+
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skill-tag {
+  background-color: #f8f9fa;
+  color: #212529;
+  padding: 8px 16px;
+  border-radius: 30px;
+  font-size: 1rem;
+  display: inline-block;
+  margin-bottom: 10px;
+  border: 1px solid #dee2e6;
+  transition: all 0.3s ease;
+}
+
+.skill-tag:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }

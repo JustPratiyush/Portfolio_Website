@@ -102,3 +102,10 @@
 hr {
   color: white;
 }
+
+/* Dark mode styles for skills */
+[data-bs-theme="dark"] .skill-tag {
+  background-color: #2b3035;
+  color: #f8f9fa;
+  border-color: #495057;
+}
