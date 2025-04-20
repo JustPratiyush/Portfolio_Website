@@ -14,6 +14,10 @@
       rel="stylesheet"
     />
 
+    <!-- Audio Preload -->
+
+    <audio id="hover-sound" src="click.mp3" preload="auto"></audio>
+
     <!-- Stylesheets -->
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="dark-mode.css" />
@@ -78,7 +82,7 @@
           <div class="col-10 col-sm-8 col-lg-6 circle-container">
             <img
               src="./images/ghibli.png"
-              class="d-block mx-lg-auto img-fluid Profile-Photo"
+              class="d-block mx-lg-auto img-fluid Profile-Photo hover-sound-trigger"
               alt="Profile Photo"
             />
           </div>
@@ -123,14 +127,14 @@
             <div class="d-grid gap-2 d-md-flex justify-content-md-start">
               <button
                 type="button"
-                class="btn btn-primary btn-lg px-4 me-md-2 MainButton"
+                class="btn btn-primary btn-lg px-4 me-md-2 MainButton hover-sound-trigger"
                 onclick="window.location.href='mailto:pratiyushkuchhal@gmail.com'"
               >
                 Contact Me
               </button>
               <button
                 type="button"
-                class="btn btn-outline-dark btn-lg px-4 MainButton"
+                class="btn btn-outline-dark btn-lg px-4 MainButton hover-sound-trigger"
                 onclick="document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });"
               >
                 Projects
@@ -155,12 +159,12 @@
           <div class="col-md-6 mb-4">
             <h3 class="mb-4 NiceFont">Programming</h3>
             <div class="skills-container">
-              <span class="skill-tag">HTML</span>
-              <span class="skill-tag">CSS</span>
-              <span class="skill-tag">JavaScript</span>
-              <span class="skill-tag">C</span>
-              <span class="skill-tag">Python</span>
-              <span class="skill-tag">MySQL</span>
+              <span class="skill-tag hover-sound-trigger">HTML</span>
+              <span class="skill-tag hover-sound-trigger">CSS</span>
+              <span class="skill-tag hover-sound-trigger">JavaScript</span>
+              <span class="skill-tag hover-sound-trigger">C</span>
+              <span class="skill-tag hover-sound-trigger">Python</span>
+              <span class="skill-tag hover-sound-trigger">MySQL</span>
             </div>
           </div>
 
@@ -168,12 +172,14 @@
           <div class="col-md-6">
             <h3 class="mb-4 NiceFont">Creative</h3>
             <div class="skills-container">
-              <span class="skill-tag">Design Thinking</span>
-              <span class="skill-tag">UX/UI</span>
-              <span class="skill-tag">PhotoShop</span>
-              <span class="skill-tag">Adobe Premier</span>
-              <span class="skill-tag">Canva</span>
-              <span class="skill-tag">Image Generation</span>
+              <span class="skill-tag hover-sound-trigger">Design Thinking</span>
+              <span class="skill-tag hover-sound-trigger">UX/UI</span>
+              <span class="skill-tag hover-sound-trigger">PhotoShop</span>
+              <span class="skill-tag hover-sound-trigger">Adobe Premier</span>
+              <span class="skill-tag hover-sound-trigger">Canva</span>
+              <span class="skill-tag hover-sound-trigger"
+                >Image Generation</span
+              >
             </div>
           </div>
         </div>
@@ -192,7 +198,7 @@
 
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
           <div
-            class="col-sm-10 offset-sm-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0"
+            class="col-sm-10 offset-sm-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 hover-sound-trigger"
           >
             <a
               href="https://hackyours.raghavkatta.xyz/"
@@ -220,7 +226,7 @@
           </div>
 
           <div
-            class="col-sm-10 offset-sm-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0"
+            class="col-sm-10 offset-sm-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 hover-sound-trigger"
           >
             <a
               href="https://tinder-but-for-dogs.vercel.app/"
@@ -248,7 +254,7 @@
           </div>
 
           <div
-            class="col-sm-10 offset-sm-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0"
+            class="col-sm-10 offset-sm-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 hover-sound-trigger"
           >
             <a
               href="https://www.figma.com/design/qTIFz2HWxLFwJiPy1Xgz6J/Causeway-App?node-id=0-1&t=QxAdBZX9ZXV2Kqi8-1"
@@ -276,7 +282,7 @@
           </div>
 
           <div
-            class="col-sm-10 offset-sm-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0"
+            class="col-sm-10 offset-sm-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 hover-sound-trigger"
           >
             <a
               href="https://github.com/JustPratiyush/AI-Powered-Medical-Assistant"
@@ -401,6 +407,10 @@
       integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
       crossorigin="anonymous"
     ></script>
+
+    <div id="custom-cursor"></div>
+    <script src="cursor.js"></script>
+
     <script src="dark-mode.js"></script>
   </body>
 </html>
