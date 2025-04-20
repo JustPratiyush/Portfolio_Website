@@ -172,3 +172,7 @@
   height: 35px;
   background-color: Black;
 }
+
+.touch-device * {
+  cursor: auto !important; /* Restore default cursor for touch devices */
+}

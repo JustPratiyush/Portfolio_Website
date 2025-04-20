@@ -1,64 +1,91 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const customCursor = document.getElementById("custom-cursor");
+  // Check if device is touch-capable
+  const isTouchDevice = () => {
+    return (
+      "ontouchstart" in window ||
+      navigator.maxTouchPoints > 0 ||
+      navigator.msMaxTouchPoints > 0
+    );
+  };
 
-  // Ensure the cursor element exists
-  if (!customCursor) {
-    console.error("Custom cursor element not found!");
-    return;
+  const customCursor = document.getElementById("custom-cursor");
+  const hoverSound = document.getElementById("hover-sound");
+
+  // If it's a touch device, hide the custom cursor but keep sound functionality
+  if (isTouchDevice()) {
+    document.body.classList.add("touch-device");
+    if (customCursor) {
+      customCursor.style.display = "none";
+    }
+    // Note: We don't return early here so sound functionality can still work
   }
 
-  // Update cursor position on mouse move
-  document.addEventListener("mousemove", (e) => {
-    // Use clientX and clientY for viewport-relative coordinates
-    const x = e.clientX;
-    const y = e.clientY;
+  // Only set up cursor movement if it exists and we're not on a touch device
+  if (customCursor && !isTouchDevice()) {
+    // Ensure the cursor element exists
+    if (!customCursor) {
+      console.error("Custom cursor element not found!");
+      return;
+    }
 
-    // Update the custom cursor's style
-    // Using translate is often smoother than updating top/left directly
-    customCursor.style.transform = `translate(${x}px, ${y}px) translate(-50%, -50%)`;
-    // Or, if you prefer updating left/top:
-    // customCursor.style.left = x + 'px';
-    // customCursor.style.top = y + 'px';
-  });
+    // Update cursor position on mouse move
+    document.addEventListener("mousemove", (e) => {
+      // Use clientX and clientY for viewport-relative coordinates
+      const x = e.clientX;
+      const y = e.clientY;
 
-  // Add/Remove hover effect class based on hovered elements
-  // Define selectors for elements that should trigger the hover effect
-  const interactiveSelectors =
-    'a, button, .MainButton, .skill-tag, input[type="submit"], [role="button"], .hover-effect'; // Add any other relevant selectors
-
-  document.querySelectorAll(interactiveSelectors).forEach((el) => {
-    el.addEventListener("mouseenter", () => {
-      customCursor.classList.add("hover-effect");
+      // Update the custom cursor's style
+      customCursor.style.transform = `translate(${x}px, ${y}px) translate(-50%, -50%)`;
     });
-    el.addEventListener("mouseleave", () => {
-      customCursor.classList.remove("hover-effect");
+
+    // Add/Remove hover effect class based on hovered elements
+    const interactiveSelectors =
+      'a, button, .MainButton, .skill-tag, input[type="submit"], [role="button"], .hover-effect';
+
+    document.querySelectorAll(interactiveSelectors).forEach((el) => {
+      el.addEventListener("mouseenter", () => {
+        customCursor.classList.add("hover-effect");
+      });
+      el.addEventListener("mouseleave", () => {
+        customCursor.classList.remove("hover-effect");
+      });
     });
-  });
 
-  // Optional: Hide custom cursor when mouse leaves the window
-  document.addEventListener("mouseleave", () => {
-    customCursor.style.opacity = "0"; // Hide it
-  });
+    // Optional: Hide custom cursor when mouse leaves the window
+    document.addEventListener("mouseleave", () => {
+      customCursor.style.opacity = "0"; // Hide it
+    });
 
-  document.addEventListener("mouseenter", () => {
-    customCursor.style.opacity = "1"; // Show it again
-  });
+    document.addEventListener("mouseenter", () => {
+      customCursor.style.opacity = "1"; // Show it again
+    });
 
-  // Optional: Add initial opacity style in CSS or here
-  // This prevents seeing the cursor jump from 0,0 on load
-  customCursor.style.opacity = "1"; // Make sure it's visible initially if not set in CSS
-});
+    // Optional: Add initial opacity style in CSS or here
+    customCursor.style.opacity = "1"; // Make sure it's visible initially if not set in CSS
+  }
 
-// Clicky Sound
+  // Clicky Sound - Handle this separately from cursor functionality
+  // This ensures sounds work even on touch devices
+  const hoverTargets = document.querySelectorAll(".hover-sound-trigger");
 
-const hoverSound = document.getElementById("hover-sound");
+  hoverTargets.forEach((el) => {
+    // Use touchstart event for touch devices and mouseenter for mouse devices
+    const eventType = isTouchDevice() ? "touchstart" : "mouseenter";
 
-// Target all elements you want the sound to trigger on hover
-const hoverTargets = document.querySelectorAll(".hover-sound-trigger");
+    el.addEventListener(eventType, () => {
+      if (hoverSound) {
+        hoverSound.currentTime = 0; // Rewind to start
 
-hoverTargets.forEach((el) => {
-  el.addEventListener("mouseenter", () => {
-    hoverSound.currentTime = 0; // Rewind to start
-    hoverSound.play();
+        // Play the sound with a user interaction promise handler
+        const playPromise = hoverSound.play();
+
+        // Handle potential promise rejection (happens in some browsers)
+        if (playPromise !== undefined) {
+          playPromise.catch((error) => {
+            console.log("Audio play failed:", error);
+          });
+        }
+      }
+    });
   });
 });
