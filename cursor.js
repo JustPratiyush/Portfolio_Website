@@ -89,14 +89,75 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  // Reading list image container two-step click functionality
   const imageContainer = document.querySelector(".image-container");
   if (imageContainer) {
-    imageContainer.addEventListener("click", () => {
-      // Replace with your actual Notion page URL
-      window.open(
-        "https://kuchhal.notion.site/476175bbef7e47c4ac38ddf6935ec3af?v=83043f2ba1ee4f27bf4c3e6667a72d62",
-        "_blank"
-      );
+    let tooltipVisible = false;
+
+    imageContainer.addEventListener("click", (event) => {
+      // For touch devices, implement two-step click
+      if (isTouchDevice()) {
+        // If tooltip is not visible yet, show it and prevent navigation
+        if (!tooltipVisible) {
+          const tooltip = imageContainer.querySelector(".image-tooltip");
+          tooltip.style.visibility = "visible";
+          tooltip.style.opacity = "1";
+
+          // Add overlay effect
+          imageContainer.classList.add("overlay-active");
+
+          tooltipVisible = true;
+          event.preventDefault();
+
+          // Play hover sound if available
+          if (hoverSound) {
+            hoverSound.currentTime = 0;
+            hoverSound
+              .play()
+              .catch((error) => console.log("Audio play failed:", error));
+          }
+        } else {
+          // Second click, navigate to URL
+          window.open(
+            "https://kuchhal.notion.site/476175bbef7e47c4ac38ddf6935ec3af?v=83043f2ba1ee4f27bf4c3e6667a72d62",
+            "_blank"
+          );
+
+          // Reset state
+          setTimeout(() => {
+            const tooltip = imageContainer.querySelector(".image-tooltip");
+            tooltip.style.visibility = "";
+            tooltip.style.opacity = "";
+            imageContainer.classList.remove("overlay-active");
+            tooltipVisible = false;
+          }, 300);
+        }
+      } else {
+        // For non-touch devices, navigate on first click
+        window.open(
+          "https://kuchhal.notion.site/476175bbef7e47c4ac38ddf6935ec3af?v=83043f2ba1ee4f27bf4c3e6667a72d62",
+          "_blank"
+        );
+      }
     });
+
+    // For touch devices, add special handling to disable hover effects
+    if (isTouchDevice()) {
+      // Add a style to prevent hover effects on touch devices
+      const style = document.createElement("style");
+      style.textContent = `
+          .image-container:hover .image-tooltip {
+            visibility: hidden;
+            opacity: 0;
+          }
+          .image-container:hover::after {
+            opacity: 0;
+          }
+          .image-container.overlay-active::after {
+            opacity: 1 !important;
+          }
+        `;
+      document.head.appendChild(style);
+    }
   }
 });

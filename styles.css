@@ -238,3 +238,14 @@
     border-radius: 40px;
   }
 }
+
+/* Style for active overlay for touch devices */
+.overlay-active::after {
+  opacity: 1 !important;
+}
+
+/* Make sure the tooltip is properly positioned on touch devices */
+.image-container.overlay-active .image-tooltip {
+  visibility: visible !important;
+  opacity: 1 !important;
+}
