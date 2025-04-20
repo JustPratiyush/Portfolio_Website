@@ -56,12 +56,6 @@
   height: auto;
   width: 100%;
   object-fit: cover;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-
-.Profile-Photo:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 /* Project Cards */
@@ -175,4 +169,72 @@
 
 .touch-device * {
   cursor: auto !important; /* Restore default cursor for touch devices */
+}
+
+/* Image tooltip styles */
+.image-container {
+  position: relative;
+  cursor: pointer !important;
+  display: inline-block;
+}
+
+.image-tooltip {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-size: 16px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 100;
+  width: 80%;
+  text-align: center;
+}
+
+.image-container:hover .image-tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Add a semi-transparent overlay on hover */
+.image-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 100px; /* Match your image border-radius */
+}
+
+.image-container:hover::after {
+  opacity: 1;
+}
+
+/* Apply the border-radius to maintain the circle shape */
+@media (max-width: 991px) {
+  .image-container::after {
+    border-radius: 80px;
+  }
+}
+
+@media (max-width: 767px) {
+  .image-container::after {
+    border-radius: 50px;
+  }
+}
+
+@media (max-width: 575px) {
+  .image-container::after {
+    border-radius: 40px;
+  }
 }

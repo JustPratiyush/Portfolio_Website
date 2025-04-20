@@ -88,4 +88,15 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
+
+  const imageContainer = document.querySelector(".image-container");
+  if (imageContainer) {
+    imageContainer.addEventListener("click", () => {
+      // Replace with your actual Notion page URL
+      window.open(
+        "https://kuchhal.notion.site/476175bbef7e47c4ac38ddf6935ec3af?v=83043f2ba1ee4f27bf4c3e6667a72d62",
+        "_blank"
+      );
+    });
+  }
 });
