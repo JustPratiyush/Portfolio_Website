@@ -1,12 +1,4 @@
-.project-img {
-  height: 225px;
-  object-fit: cover;
-}
-
-.NiceFont {
-  font-family: "Virgil", cursive;
-}
-
+/* Base Styles */
 * {
   font-family: "Poppins", sans-serif;
 }
@@ -18,29 +10,29 @@
   font-style: normal;
 }
 
-/* NEW: Style for the wrapper */
+.NiceFont {
+  font-family: "Virgil", cursive;
+}
+
+/* Hero Section */
 .headline-wrapper {
-  display: inline-block; /* Makes the wrapper only as wide as its content (the h1) */
-  position: relative; /* Optional: useful for potential future positioning inside */
-  /* max-width: 100%; Optional: Prevents overflow if text is extremely long */
+  display: inline-block;
+  position: relative;
 }
 
 .HeroText h1 {
-  margin-bottom: 0; /* Keep h1 margin bottom 0 */
-  /* display: inline-block; /* No longer needed on h1 itself */
+  margin-bottom: 0;
 }
 
 .stroke {
-  /* width: 100%; /* Keep this (it's inline in the HTML now, which is fine too) */
-  height: auto; /* Allows height to scale proportionally based on viewBox and width */
-  display: block; /* Prevents extra space below SVG */
-  vertical-align: bottom; /* Helps alignment */
-  margin-top: -0.2em; /* Pulls the stroke closer to the text baseline. Adjust this value as needed (e.g., -5px, -0.1em) */
-  /* max-width: 100%; Optional: ensures it doesn't exceed wrapper */
+  height: auto;
+  display: block;
+  vertical-align: bottom;
+  margin-top: -0.2em;
 }
 
 .stroke path {
-  fill: currentColor; /* Good practice: inherits text color */
+  fill: currentColor;
 }
 
 .lead {
@@ -48,9 +40,25 @@
   font-size: 1rem !important;
 }
 
+/* Profile Photo */
+.Profile-Photo {
+  border-radius: 100px;
+  max-width: 100%;
+  height: auto;
+  width: 100%;
+  object-fit: cover;
+}
+
+/* Project Cards */
+.project-img {
+  height: 225px;
+  object-fit: cover;
+}
+
 .hover-effect {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
 .hover-effect:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
@@ -60,16 +68,7 @@
   margin-bottom: 100px;
 }
 
-/* Fix the syntax error (extra '{') if you keep the blocks for other rules */
-@media screen and (max-width: 991px) and (min-width: 768px) {
-  /* Add other responsive styles here if needed */
-}
-
-@media screen and (max-width: 767px) {
-  /* Add other responsive styles here if needed */
-}
-
-/* Skills Section Styles */
+/* Skills Section */
 .skills-section {
   padding: 50px 0;
 }
@@ -97,47 +96,35 @@
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-/* Replace your current .Profile-Photo class with this */
-.Profile-Photo {
-  border-radius: 100px;
-  max-width: 100%; /* Ensures image doesn't overflow container */
-  height: auto; /* Allow height to adjust proportionally */
-  width: 100%; /* Take full width of parent container */
-  object-fit: cover; /* Maintains aspect ratio while filling container */
-}
-
-/* Add responsive adjustments for different screen sizes */
+/* Responsive Styles */
 @media (min-width: 992px) {
   .Profile-Photo {
-    height: 40rem; /* Your original desired height for large screens */
+    height: 40rem;
   }
 }
 
 @media (max-width: 991px) {
   .Profile-Photo {
-    height: 30rem; /* Slightly smaller for medium screens */
-    border-radius: 80px; /* Slightly smaller border radius */
+    height: 30rem;
+    border-radius: 80px;
   }
 }
 
 @media (max-width: 767px) {
   .Profile-Photo {
-    height: 20rem; /* Even smaller for mobile screens */
-    border-radius: 50px; /* Smaller border radius for proportion */
+    height: 20rem;
+    border-radius: 50px;
+  }
+
+  .circle-container {
+    margin: 0 auto;
+    text-align: center;
   }
 }
 
-/* For very small screens */
 @media (max-width: 575px) {
   .Profile-Photo {
     height: 15rem;
     border-radius: 40px;
-  }
-}
-
-@media (max-width: 767px) {
-  .circle-container {
-    margin: 0 auto;
-    text-align: center;
   }
 }

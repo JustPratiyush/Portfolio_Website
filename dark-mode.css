@@ -1,4 +1,4 @@
-/* Dark mode toggle button styles */
+/* Dark Mode Toggle Button */
 .dark-mode-toggle {
   position: fixed;
   top: 15px;
@@ -17,14 +17,11 @@
   transition: all 0.3s ease;
 }
 
-[data-bs-theme="dark"] .dark-mode-toggle {
-  background-color: #212529;
-}
-
 .dark-mode-toggle:hover {
   transform: scale(1.1);
 }
 
+/* Toggle Button Icons */
 .sun-icon,
 .moon-icon {
   width: 24px;
@@ -43,6 +40,21 @@
   color: #212529;
 }
 
+/* Dark Mode Core Styles */
+[data-bs-theme="dark"] {
+  color-scheme: dark;
+}
+
+[data-bs-theme="dark"] body {
+  background-color: #121212;
+  color: #f8f9fa;
+}
+
+/* Dark Mode Toggle States */
+[data-bs-theme="dark"] .dark-mode-toggle {
+  background-color: #212529;
+}
+
 [data-bs-theme="dark"] .sun-icon {
   opacity: 1;
   color: #f8f9fa;
@@ -53,16 +65,7 @@
   color: #f8f9fa;
 }
 
-/* Additional dark mode styles */
-[data-bs-theme="dark"] {
-  color-scheme: dark;
-}
-
-[data-bs-theme="dark"] body {
-  background-color: #121212;
-  color: #f8f9fa;
-}
-
+/* Dark Mode UI Elements */
 [data-bs-theme="dark"] .card {
   background-color: #2b3035;
   border-color: #495057;
@@ -76,34 +79,35 @@
   color: #adb5bd !important;
 }
 
+/* Dark Mode Button States */
 [data-bs-theme="dark"] .btn-outline-dark {
   color: #f8f9fa;
   border-color: #f8f9fa;
 }
 
-[data-bs-theme="dark"] hr {
-  border-color: white;
-}
-
-/* Normal state (light mode) - button remains dark */
+/* Contact Button Styles */
 .contact-button {
   background-color: #212529;
   color: #fff;
   border-color: #212529;
 }
 
-/* Dark mode - button becomes white */
 [data-bs-theme="dark"] .contact-button {
   background-color: #f8f9fa;
   color: #212529;
   border-color: #f8f9fa;
 }
 
+/* Miscellaneous Dark Mode Styles */
+[data-bs-theme="dark"] hr {
+  border-color: white;
+}
+
 hr {
   color: white;
 }
 
-/* Dark mode styles for skills */
+/* Dark Mode Skills Section */
 [data-bs-theme="dark"] .skill-tag {
   background-color: #2b3035;
   color: #f8f9fa;
