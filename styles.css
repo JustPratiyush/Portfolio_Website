@@ -96,3 +96,48 @@
   transform: translateY(-3px);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
+
+/* Replace your current .Profile-Photo class with this */
+.Profile-Photo {
+  border-radius: 100px;
+  max-width: 100%; /* Ensures image doesn't overflow container */
+  height: auto; /* Allow height to adjust proportionally */
+  width: 100%; /* Take full width of parent container */
+  object-fit: cover; /* Maintains aspect ratio while filling container */
+}
+
+/* Add responsive adjustments for different screen sizes */
+@media (min-width: 992px) {
+  .Profile-Photo {
+    height: 40rem; /* Your original desired height for large screens */
+  }
+}
+
+@media (max-width: 991px) {
+  .Profile-Photo {
+    height: 30rem; /* Slightly smaller for medium screens */
+    border-radius: 80px; /* Slightly smaller border radius */
+  }
+}
+
+@media (max-width: 767px) {
+  .Profile-Photo {
+    height: 20rem; /* Even smaller for mobile screens */
+    border-radius: 50px; /* Smaller border radius for proportion */
+  }
+}
+
+/* For very small screens */
+@media (max-width: 575px) {
+  .Profile-Photo {
+    height: 15rem;
+    border-radius: 40px;
+  }
+}
+
+@media (max-width: 767px) {
+  .circle-container {
+    margin: 0 auto;
+    text-align: center;
+  }
+}
