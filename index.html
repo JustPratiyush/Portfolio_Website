@@ -15,12 +15,20 @@
     />
 
     <!-- Audio Preload -->
-    <audio id="hover-sound" src="click.mp3" preload="auto"></audio>
-    <audio id="toggle-sound" src="click2.mp3" preload="auto"></audio>
+    <audio
+      id="hover-sound"
+      src="assets/sounds/click.mp3"
+      preload="auto"
+    ></audio>
+    <audio
+      id="toggle-sound"
+      src="assets/sounds/click2.mp3"
+      preload="auto"
+    ></audio>
 
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="dark-mode.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/dark-mode.css" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -82,7 +90,7 @@
           <div class="col-10 col-sm-8 col-lg-6 circle-container">
             <div class="image-container hover-sound-trigger position-relative">
               <img
-                src="./images/ghibli.png"
+                src="assets/images/ghibli.png"
                 class="d-block mx-lg-auto img-fluid Profile-Photo"
                 alt="Profile Photo"
               />
@@ -118,15 +126,13 @@
                 </g>
               </svg>
             </div>
-            <p class="lead">
+            <p class="lead Typing">
               I build for the web, but curiosity drives everything. From digging
               into AI and Neuroscience to decoding startups and behavior—I'm
               always connecting the dots. Balance comes through the gym, yoga,
               and quiet moments. I'm in my early years but things are moving
               really fast.
             </p>
-
-            <p>Let's work together!</p>
             <br />
             <div class="d-grid gap-2 d-md-flex justify-content-md-start">
               <button
@@ -144,6 +150,8 @@
                 Projects
               </button>
             </div>
+            <br />
+            <p class="Typing mt-2">Let's work together!</p>
           </div>
         </div>
       </div>
@@ -214,7 +222,7 @@
                 class="card h-100 d-flex flex-column shadow-sm rounded-4 hover-effect"
               >
                 <img
-                  src="./images/Projects/HackYours.png"
+                  src="assets/images/Projects/HackYours.png"
                   class="card-img-top project-img rounded-top-4"
                   alt="TinDog App"
                 />
@@ -242,7 +250,7 @@
                 class="card h-100 d-flex flex-column shadow-sm rounded-4 hover-effect"
               >
                 <img
-                  src="./images/Projects/TinDog.png"
+                  src="assets/images/Projects/TinDog.png"
                   class="card-img-top project-img rounded-top-4"
                   alt="TinDog App"
                 />
@@ -270,7 +278,7 @@
                 class="card h-100 d-flex flex-column shadow-sm rounded-4 hover-effect"
               >
                 <img
-                  src="./images/Projects/Causeway.png"
+                  src="assets/images/Projects/Causeway.png"
                   class="card-img-top project-img rounded-top-4"
                   alt="Causeway App"
                 />
@@ -298,7 +306,7 @@
                 class="card h-100 d-flex flex-column shadow-sm rounded-4 hover-effect"
               >
                 <img
-                  src="./images/Projects/MedicalAssistant.png"
+                  src="assets/images/Projects/MedicalAssistant.png"
                   class="card-img-top project-img rounded-top-4"
                   alt="AI Powered Medical Assistant"
                 />
@@ -406,18 +414,27 @@
     </footer>
 
     <!-- Scripts -->
+
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
       crossorigin="anonymous"
     ></script>
 
-    <div id="custom-cursor"></div>
-    <script src="cursor.js"></script>
+    <!-- Custom Sursor -->
 
-    <script src="dark-mode.js"></script>
+    <div id="custom-cursor"></div>
+    <script src="js/cursor.js"></script>
+
+    <!-- Dark Mode -->
+
+    <script src="js/dark-mode.js"></script>
 
     <div id="theme-transition-overlay"></div>
+
+    <!-- Typing Animation -->
+
+    <script src="js/typing-animation.js"></script>
 
     <!-- Vercel Analytics -->
 
@@ -428,6 +445,9 @@
           (window.vaq = window.vaq || []).push(arguments);
         };
     </script>
+
     <script defer src="/_vercel/insights/script.js"></script>
+
+    <!-- END -->
   </body>
 </html>

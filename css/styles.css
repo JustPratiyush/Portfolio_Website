@@ -5,7 +5,7 @@
 
 @font-face {
   font-family: "Virgil";
-  src: url("/fonts/Virgil.woff2") format("woff2");
+  src: url("/assets/fonts/Virgil.woff2") format("woff2");
   font-weight: normal;
   font-style: normal;
 }
@@ -248,4 +248,48 @@
 .image-container.overlay-active .image-tooltip {
   visibility: visible !important;
   opacity: 1 !important;
+}
+
+/* Typing Animation Styles */
+
+/* Typing Animation Styles */
+.typing-container {
+  /* Maintain the same height as the final paragraph */
+  /* Adjust based on paragraph height */
+  position: relative;
+}
+
+.typing-cursor {
+  display: inline-block;
+  width: 2px;
+  background-color: #000; /* Light mode cursor color */
+  animation: blink-caret 0.75s step-end infinite;
+  margin-left: 1px;
+  position: relative;
+  height: 1.2em;
+  vertical-align: middle;
+}
+
+[data-bs-theme="dark"] .typing-cursor {
+  background-color: #fff; /* Dark mode cursor color */
+}
+
+/* Blinking cursor animation */
+@keyframes blink-caret {
+  from,
+  to {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Hide paragraphs initially */
+p.Typing {
+  opacity: 1;
+}
+
+p.Typing.waiting {
+  opacity: 0;
 }
