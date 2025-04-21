@@ -302,3 +302,21 @@ p.Typing {
 p.Typing.waiting {
   opacity: 0;
 }
+
+/* Buttons Delay */
+
+.ButtonsContainer {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease-in-out; /* Optional fade-in */
+}
+
+@media (min-width: 991px) {
+  .Introduction {
+    min-height: 170px;
+  }
+
+  .LetsWork {
+    min-height: 25px;
+  }
+}

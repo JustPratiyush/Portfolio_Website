@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const originalText = originalTexts[paragraphIndex];
       let charIndex = 0;
-      const typingSpeed = 20; // milliseconds per character
+      const typingSpeed = 10; // milliseconds per character
 
       function typeNextCharacter() {
         if (charIndex < originalText.length) {
@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
             setTimeout(() => {
               cursor.style.display = "none";
               animateParagraph(paragraphIndex + 1);
-            }, 1000); // 1 second pause before next paragraph
+            }, 2000); // 1 second pause before next paragraph
           } else {
             cursor.style.display = "none"; // Hide cursor after the last paragraph
           }
