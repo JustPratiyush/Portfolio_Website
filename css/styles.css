@@ -129,6 +129,15 @@
     margin: 0 auto;
     text-align: center;
   }
+
+  .ButtonsContainer {
+    display: flex !important;
+    place-items: center !important;
+  }
+
+  .MainButton {
+    min-width: 300px !important;
+  }
 }
 
 @media (max-width: 575px) {
