@@ -14,7 +14,7 @@ if (buttonsContainer) {
     buttonsContainer.style.opacity = "1";
     buttonsContainer.style.visibility = "visible";
     console.log("Buttons (delayed) are now visible."); // Log specific to this action
-  }, 5000); // 3000 milliseconds = 3 seconds
+  }, 6000); // 3000 milliseconds = 3 seconds
 } else {
   // Log an error specifically if the button container isn't found
   console.error(
