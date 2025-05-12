@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
             setTimeout(() => {
               cursor.style.display = "none";
               animateParagraph(paragraphIndex + 1);
-            }, 2000); // 1 second pause before next paragraph
+            }, 1000); // 1 second pause before next paragraph
           } else {
             cursor.style.display = "none"; // Hide cursor after the last paragraph
           }
