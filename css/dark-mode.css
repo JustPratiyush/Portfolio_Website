@@ -1,3 +1,13 @@
+body {
+  background: linear-gradient(
+    135deg,
+    #fff8f1,
+    #e2d1c3,
+    #6ea3f8,
+    #c2e9fb
+  ) !important;
+}
+
 /* ========== Dark Mode Toggle Button ========== */
 .mode-tog {
   background-color: black;
