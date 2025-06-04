@@ -113,8 +113,8 @@ body {
 }
 
 [data-bs-theme="dark"] .card {
-  background-color: #2b3035;
-  border-color: #495057;
+  background-color: #2b3035 !important;
+  border-color: #495057 !important;
 }
 
 [data-bs-theme="dark"] .text-body-emphasis {
@@ -145,6 +145,12 @@ body {
   border-color: #495057;
 }
 
+[data-bs-theme="dark"] .card-body {
+  background: rgb(26, 26, 26) !important;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
 /* ========== Miscellaneous ========== */
 hr {
   color: white;
@@ -155,6 +161,8 @@ body,
 .card,
 button,
 a,
+.btn,
+.card-body,
 .skill-tag {
   transition: background-color 0.5s ease, color 0.5s ease,
     border-color 0.5s ease, box-shadow 0.5s ease !important;

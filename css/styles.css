@@ -77,6 +77,18 @@
   margin-bottom: 100px;
 }
 
+.card-body {
+  background: linear-gradient(
+    135deg,
+    #ffffff,
+    #ffe4ce,
+    hsl(0, 0%, 100%),
+    #9ee0ff
+  ) !important;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
 /* Skills Section */
 .skills-section {
   padding: 50px 0;
@@ -89,14 +101,14 @@
 }
 
 .skill-tag {
-  background-color: #f8f9fa;
-  color: #212529;
+  background: linear-gradient(90deg, #0c6dfd, #8533ff) !important;
+  color: white;
   padding: 8px 16px;
   border-radius: 30px;
   font-size: 1rem;
   display: inline-block;
   margin-bottom: 10px;
-  border: 1px solid #dee2e6;
+  border: 0px solid #dee2e6;
   transition: all 0.3s ease;
 }
 
