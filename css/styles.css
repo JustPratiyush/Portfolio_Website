@@ -147,39 +147,6 @@
   }
 }
 
-* {
-  cursor: none !important; /* Force hide default cursor */
-}
-
-/* Cursor Theme */
-
-#custom-cursor {
-  position: fixed;
-  width: 20px;
-  height: 20px;
-  background-color: black;
-  border: 2px solid transparent;
-  border-radius: 50%;
-  pointer-events: none;
-  transform: translate(-50%, -50%);
-  transition: width 0.2s ease, height 0.2s ease, border-color 0.2s ease,
-    background-color 0.2s ease;
-  z-index: 9999;
-  left: 0;
-  top: 0;
-  box-sizing: border-box;
-}
-
-#custom-cursor.hover-effect {
-  width: 35px;
-  height: 35px;
-  background-color: Black;
-}
-
-.touch-device * {
-  cursor: auto !important; /* Restore default cursor for touch devices */
-}
-
 /* Image tooltip styles */
 .image-container {
   position: relative;

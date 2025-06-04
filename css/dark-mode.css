@@ -1,46 +1,98 @@
-/* Dark Mode Toggle Button */
-.dark-mode-toggle {
+/* ========== Dark Mode Toggle Button ========== */
+.mode-tog {
+  background-color: black;
   position: fixed;
-  top: 15px;
-  right: 15px;
-  z-index: 1000;
-  border: none;
+  right: 30px;
+  top: 30px;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  z-index: 11;
+  transition: background-color 1000ms;
   border-radius: 50%;
-  width: 45px;
-  height: 45px;
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
-  background-color: #f8f9fa;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease;
+  overflow: hidden;
 }
 
-.dark-mode-toggle:hover {
-  transform: scale(1.1);
+.mode-tog.active {
+  background-color: white;
 }
 
-/* Toggle Button Icons */
-.sun-icon,
-.moon-icon {
-  width: 24px;
-  height: 24px;
-  transition: opacity 0.3s ease, transform 0.5s ease;
-}
-
-.sun-icon {
-  opacity: 0;
+/* ========== Toggle Icons ========== */
+.mode-tog .moon-icon,
+.mode-tog .sun-icon {
   position: absolute;
-  color: #212529;
+  transition: all 0.5s ease;
+  stroke: white;
+  height: 20px;
+  width: 20px;
 }
 
-.moon-icon {
+.mode-tog .moon-icon {
   opacity: 1;
-  color: #212529;
+  transform: rotate(0deg) scale(1);
 }
 
-/* Dark Mode Core Styles */
+.mode-tog .sun-icon {
+  opacity: 0;
+  transform: rotate(180deg) scale(0.5);
+}
+
+.mode-tog.active .moon-icon {
+  opacity: 0;
+  transform: rotate(-180deg) scale(0.5);
+  stroke: black;
+}
+
+.mode-tog.active .sun-icon {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+  stroke: black;
+}
+
+/* ========== Toggle Container ========== */
+.Togglecontainer {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  right: 30px;
+  top: 30px;
+}
+
+/* ========== Dark Mode Circular Overlay ========== */
+.dark-mode {
+  position: relative;
+  transform: scale(0);
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 350vw;
+  height: 350vw;
+  border-radius: 50%;
+  background-color: black;
+  transition: transform 1000ms ease-in-out;
+  display: flex;
+  flex: 0 0 auto;
+}
+
+.dark-mode.active {
+  transform: scale(1);
+}
+
+@media screen and (max-width: 600px) {
+  .dark-mode {
+    width: 250vh;
+    height: 250vh;
+  }
+}
+
+/* ========== Dark Mode Theming (Bootstrap Overrides) ========== */
 [data-bs-theme="dark"] {
   color-scheme: dark;
 }
@@ -50,22 +102,6 @@
   color: #f8f9fa;
 }
 
-/* Dark Mode Toggle States */
-[data-bs-theme="dark"] .dark-mode-toggle {
-  background-color: #212529;
-}
-
-[data-bs-theme="dark"] .sun-icon {
-  opacity: 1;
-  color: #f8f9fa;
-}
-
-[data-bs-theme="dark"] .moon-icon {
-  opacity: 0;
-  color: #f8f9fa;
-}
-
-/* Dark Mode UI Elements */
 [data-bs-theme="dark"] .card {
   background-color: #2b3035;
   border-color: #495057;
@@ -79,95 +115,48 @@
   color: #adb5bd !important;
 }
 
-/* Dark Mode Button States */
 [data-bs-theme="dark"] .btn-outline-dark {
   color: #f8f9fa;
   border-color: #f8f9fa;
 }
 
-/* Miscellaneous Dark Mode Styles */
+[data-bs-theme="dark"] .btn-outline-dark:hover {
+  background-color: #f8f9fa;
+  color: #121212;
+}
+
 [data-bs-theme="dark"] hr {
   border-color: white;
 }
 
-hr {
-  color: white;
-}
-
-/* Dark Mode Skills Section */
 [data-bs-theme="dark"] .skill-tag {
   background-color: #2b3035;
   color: #f8f9fa;
   border-color: #495057;
 }
 
-/* Cursor */
-
-[data-bs-theme="dark"] #custom-cursor {
-  position: fixed;
-  width: 20px;
-  height: 20px;
-  background-color: white;
-  border: 2px solid transparent;
-  border-radius: 50%;
-  pointer-events: none;
-  transform: translate(-50%, -50%);
-  transition: width 0.2s ease, height 0.2s ease, border-color 0.2s ease,
-    background-color 0.2s ease;
-  z-index: 9999;
-  left: 0;
-  top: 0;
-  box-sizing: border-box;
+/* ========== Miscellaneous ========== */
+hr {
+  color: white;
 }
 
-[data-bs-theme="dark"] #custom-cursor.hover-effect {
-  width: 35px;
-  height: 35px;
-  background-color: white;
-}
-
-/* Transition Animation */
-
-/* Theme transition animation */
-#theme-transition-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: transparent;
-  pointer-events: none;
-  z-index: 9998;
-  opacity: 0;
-  transition: opacity 0.5s ease;
-}
-
-.theme-transitioning #theme-transition-overlay {
-  opacity: 1;
-}
-
-[data-bs-theme="light"] #theme-transition-overlay {
-  background-color: rgba(255, 255, 255, 0.85);
-}
-
-[data-bs-theme="dark"] #theme-transition-overlay {
-  background-color: rgba(0, 0, 0, 0.85);
-}
-
-/* Add smooth transitions to all elements */
+/* Smooth transitions for interactive elements */
 body,
 .card,
 button,
 a,
-.skill-tag,
-#custom-cursor,
-.dark-mode-toggle {
+.skill-tag {
   transition: background-color 0.5s ease, color 0.5s ease,
     border-color 0.5s ease, box-shadow 0.5s ease !important;
 }
 
-/* Add a fun rotation animation to toggle button */
-.dark-mode-toggle.clicked {
-  transform: rotate(360deg) scale(1.1);
-  transition: transform 0.5s ease !important;
+/* Ensure all content has proper stacking */
+.container,
+section,
+.HeroSection,
+.skills-section,
+#projects,
+footer {
+  position: relative;
+  z-index: 1;
 }
