@@ -1,6 +1,7 @@
 /* Base Styles */
 * {
   font-family: "Poppins", sans-serif;
+  font-weight: 200;
 }
 
 @font-face {
@@ -307,4 +308,153 @@ a,
 .skill-tag {
   transition: background-color 0.5s ease, color 0.5s ease,
     border-color 0.5s ease, box-shadow 0.5s ease !important;
+}
+
+/* Projects Carousel Layout */
+
+.projects-carousel-container {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  box-sizing: border-box;
+  overflow: hidden;
+  margin-bottom: 30px;
+  padding: 0 40px;
+}
+
+.projects-carousel {
+  display: flex;
+  gap: 20px;
+  transition: transform 0.3s ease;
+  padding: 0 0 10px 0;
+  margin-top: 10px;
+}
+
+.projects-carousel > .col:first-child {
+  padding-left: 0;
+}
+
+.projects-carousel > .col:last-child {
+  padding-right: 0;
+}
+
+.projects-carousel .col {
+  flex: 0 0 calc(30% - 24px);
+  max-width: calc(30% - 24px);
+}
+
+/* Progress Bar Styles */
+
+.carousel-progress-container {
+  width: 100%;
+  padding: 30px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.carousel-progress-track {
+  width: 90%;
+  max-width: 600px;
+  height: 10px;
+  background: linear-gradient(135deg, #ffffff, #ffe4ce, #ffffff, #9ee0ff);
+  border-radius: 5px;
+  position: relative;
+  cursor: pointer;
+}
+
+.carousel-progress-thumb {
+  width: 50px;
+  height: 16px;
+  background: linear-gradient(90deg, #0c6dfd, #8533ff);
+  border-radius: 8px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: grab;
+  transition: background-color 0.3s ease;
+  z-index: 2;
+}
+
+.carousel-progress-thumb:active {
+  cursor: grabbing;
+}
+
+/* Dark Mode Overrides */
+
+[data-bs-theme="dark"] .carousel-progress-track {
+  background: linear-gradient(135deg, #202020, #303030, #404040, #505050);
+}
+
+[data-bs-theme="dark"] .carousel-progress-thumb {
+  /* background: white !important; */
+}
+
+/* Responsive Breakpoints */
+
+@media (max-width: 991px) {
+  .projects-carousel .col {
+    flex: 0 0 calc(50% - 10px);
+    max-width: calc(50% - 10px);
+  }
+}
+
+@media (max-width: 767px) {
+  .projects-carousel-container {
+    padding: 10x 12px;
+  }
+  .projects-carousel .col {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .projects-carousel .card {
+    max-width: 450px;
+    margin: 0 auto;
+  }
+
+  .carousel-progress-track {
+    width: 250px;
+  }
+}
+
+/* Footer text gradient styling */
+footer .text-body-secondary {
+  background: var(--main-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent !important;
+}
+
+/* SVG icon styling - no hover effects */
+footer .gradient-icon {
+  background: none !important;
+  color: #6c757d !important;
+}
+
+/* Apply gradient to SVG icons */
+footer .gradient-icon svg {
+  fill: url(#iconGradient);
+}
+
+.Border-top {
+  position: relative;
+  z-index: 0;
+}
+
+.Border-top::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: var(--bs-border-width, 2px); /* fallback to 2px if not set */
+  width: 100%;
+  background: linear-gradient(
+    to right,
+    #ffffff,
+    #ffe4ce,
+    hsl(0, 0%, 100%),
+    #9ee0ff
+  );
+  z-index: 1;
 }
