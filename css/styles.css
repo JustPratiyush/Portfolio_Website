@@ -133,7 +133,7 @@
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 50px;
+  width: 75px;
   height: 3px;
   background: var(--skill-gradient);
   border-radius: 2px;
@@ -260,7 +260,6 @@
 .circle-container {
   display: inline-block;
 }
-</style>
 
 /* ====================================
    END SKILLS SECTION STYLES
@@ -286,8 +285,28 @@
     border-radius: 50px;
   }
 
+  .skills-category h3 {
+    position: relative;
+  }
+
+  .skills-category h3::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 75px;
+    height: 3px;
+    background: var(--skill-gradient);
+    border-radius: 2px;
+  }
+
   .circle-container {
     margin: 0 auto;
+    text-align: center;
+  }
+
+  .container {
     text-align: center;
   }
 
