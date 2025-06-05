@@ -64,27 +64,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Initialize hover sounds
   addHoverSounds();
-
-  // Skills animation code
-  function animateSkillsOnScroll() {
-    const skillItems = document.querySelectorAll(".skill-item");
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("animate");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0 }
-    );
-
-    skillItems.forEach((item) => {
-      observer.observe(item);
-    });
-  }
-
-  animateSkillsOnScroll();
 });

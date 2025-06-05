@@ -117,24 +117,6 @@ body {
   border-color: #495057 !important;
 }
 
-[data-bs-theme="dark"] .text-body-emphasis {
-  color: #f8f9fa !important;
-}
-
-[data-bs-theme="dark"] .text-body-secondary {
-  color: #adb5bd !important;
-}
-
-[data-bs-theme="dark"] .btn-outline-dark {
-  color: #f8f9fa;
-  border-color: #f8f9fa;
-}
-
-[data-bs-theme="dark"] .btn-outline-dark:hover {
-  background-color: #f8f9fa;
-  color: #121212;
-}
-
 [data-bs-theme="dark"] hr {
   border-color: white;
 }
@@ -151,30 +133,13 @@ body {
   border-bottom-right-radius: 15px;
 }
 
-/* ========== Miscellaneous ========== */
-hr {
-  color: white;
+[data-bs-theme="dark"] .btn-outline-dark {
+  color: #f8f9fa;
+  border-color: #f8f9fa;
 }
-
-/* Smooth transitions for interactive elements */
-body,
-.card,
-button,
-a,
-.btn,
-.card-body,
-.skill-tag {
-  transition: background-color 0.5s ease, color 0.5s ease,
-    border-color 0.5s ease, box-shadow 0.5s ease !important;
-}
-
 /* Ensure all content has proper stacking */
 .container,
-section,
-.HeroSection,
-.skills-section,
-#projects,
-footer {
+section {
   position: relative;
   z-index: 1;
 }

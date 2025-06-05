@@ -9,6 +9,19 @@
   font-weight: normal;
   font-style: normal;
 }
+
+/* CSS Custom Properties for Gradients */
+:root {
+  --main-gradient: linear-gradient(
+    135deg,
+    #ffffff,
+    #ffe4ce,
+    hsl(0, 0%, 100%),
+    #9ee0ff
+  );
+  --skill-gradient: linear-gradient(90deg, #0c6dfd, #8533ff);
+}
+
 .MainButton {
   border-radius: 50px !important;
   transition: transform 0.4s ease, box-shadow 0.4s ease !important;
@@ -78,13 +91,7 @@
 }
 
 .card-body {
-  background: linear-gradient(
-    135deg,
-    #ffffff,
-    #ffe4ce,
-    hsl(0, 0%, 100%),
-    #9ee0ff
-  ) !important;
+  background: var(--main-gradient) !important;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
 }
@@ -101,7 +108,7 @@
 }
 
 .skill-tag {
-  background: linear-gradient(90deg, #0c6dfd, #8533ff) !important;
+  background: var(--skill-gradient) !important;
   color: white;
   padding: 8px 16px;
   border-radius: 30px;
@@ -201,14 +208,14 @@
   background-color: rgba(0, 0, 0, 0.4);
   opacity: 0;
   transition: opacity 0.3s ease;
-  border-radius: 100px; /* Match your image border-radius */
+  border-radius: 100px;
 }
 
 .image-container:hover::after {
   opacity: 1;
 }
 
-/* Apply the border-radius to maintain the circle shape */
+/* Responsive overlay border-radius */
 @media (max-width: 991px) {
   .image-container::after {
     border-radius: 80px;
@@ -232,25 +239,20 @@
   opacity: 1 !important;
 }
 
-/* Make sure the tooltip is properly positioned on touch devices */
 .image-container.overlay-active .image-tooltip {
   visibility: visible !important;
   opacity: 1 !important;
 }
 
 /* Typing Animation Styles */
-
-/* Typing Animation Styles */
 .typing-container {
-  /* Maintain the same height as the final paragraph */
-  /* Adjust based on paragraph height */
   position: relative;
 }
 
 .typing-cursor {
   display: inline-block;
   width: 2px;
-  background-color: #000; /* Light mode cursor color */
+  background-color: #000;
   animation: blink-caret 0.75s step-end infinite;
   margin-left: 1px;
   position: relative;
@@ -259,7 +261,7 @@
 }
 
 [data-bs-theme="dark"] .typing-cursor {
-  background-color: #fff; /* Dark mode cursor color */
+  background-color: #fff;
 }
 
 /* Blinking cursor animation */
@@ -283,15 +285,26 @@ p.Typing.waiting {
 }
 
 /* Buttons Delay */
-
 .ButtonsContainer {
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.5s ease-in-out; /* Optional fade-in */
+  transition: opacity 0.5s ease-in-out;
 }
 
 @media (min-width: 991px) {
   .Introduction {
     min-height: 170px;
   }
+}
+
+/* Smooth transitions for interactive elements */
+body,
+.card,
+button,
+a,
+.btn,
+.card-body,
+.skill-tag {
+  transition: background-color 0.5s ease, color 0.5s ease,
+    border-color 0.5s ease, box-shadow 0.5s ease !important;
 }
