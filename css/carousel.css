@@ -1,0 +1,122 @@
+/* Reusable Carousel System */
+
+/* Full-width Carousel Container */
+.carousel-container {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  box-sizing: border-box;
+  overflow: hidden;
+  margin-bottom: 30px;
+  padding: 0 40px;
+}
+
+/* Flex Track for Carousel Items */
+.carousel-track {
+  display: flex;
+  gap: 20px;
+  transition: transform 0.3s ease;
+  padding: 0 0 10px 0;
+  margin-top: 10px;
+}
+
+.carousel-track > .col:first-child {
+  padding-left: 0;
+}
+
+.carousel-track > .col:last-child {
+  padding-right: 0;
+}
+
+.carousel-track .col {
+  flex: 0 0 calc(30% - 24px);
+  max-width: calc(30% - 24px);
+}
+
+/* Progress Bar System */
+.carousel-progress-container {
+  width: 100%;
+  padding: 30px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.carousel-progress-track {
+  width: 90%;
+  max-width: 600px;
+  height: 10px;
+  background: var(--main-gradient);
+  border-radius: 5px;
+  position: relative;
+  cursor: pointer;
+}
+
+.carousel-progress-thumb {
+  width: 50px;
+  height: 16px;
+  background: var(--skill-gradient);
+  border-radius: 8px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: grab;
+  transition: background-color 0.3s ease;
+  z-index: 2;
+}
+
+.carousel-progress-thumb:active {
+  cursor: grabbing;
+}
+
+/* Dark Mode Overrides */
+[data-bs-theme="dark"] .carousel-progress-track {
+  background: linear-gradient(135deg, #202020, #303030, #404040, #505050);
+}
+
+/* Container spacing for sections */
+.Projects-Container,
+.Blogs-Container {
+  margin-bottom: 100px;
+}
+
+.card-img-top {
+  height: 200px !important;
+}
+
+.project-skill-logo {
+  width: 25px;
+  height: 25px;
+  transition: all 0.3s ease;
+  box-shadow: var(--logo-shadow);
+  display: block;
+  object-fit: contain;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 991px) {
+  .carousel-track .col {
+    flex: 0 0 calc(50% - 10px);
+    max-width: calc(50% - 10px);
+  }
+}
+
+@media (max-width: 767px) {
+  .carousel-container {
+    padding: 10px 12px;
+  }
+
+  .carousel-track .col {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .carousel-track .card {
+    max-width: 450px;
+    margin: 0 auto;
+  }
+
+  .carousel-progress-track {
+    width: 250px;
+  }
+}
