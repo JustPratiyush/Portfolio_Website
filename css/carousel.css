@@ -2,7 +2,6 @@
 
 /* Full-width Carousel Container */
 .carousel-container {
-  width: 100vw;
   position: relative;
   left: 50%;
   transform: translateX(-50%);
@@ -10,6 +9,20 @@
   overflow: hidden;
   margin-bottom: 30px;
   padding: 0 40px;
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 5%,
+    black 95%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 5%,
+    black 85%,
+    transparent 100%
+  );
 }
 
 /* Flex Track for Carousel Items */
@@ -119,4 +132,11 @@
   .carousel-progress-track {
     width: 250px;
   }
+}
+
+.card {
+  max-width: 340px !important;
+  min-width: 340px !important;
+
+  margin: 0px;
 }
