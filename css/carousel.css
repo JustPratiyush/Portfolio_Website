@@ -134,9 +134,7 @@
   }
 }
 
-.card {
+.cardsize {
   max-width: 340px !important;
   min-width: 340px !important;
-
-  margin: 0px;
 }
