@@ -17,6 +17,96 @@
     initClickHandlers();
     initHoverSounds();
     initImageOverlay();
+    initScrollAnimations();
+    initHoverEffects();
+  }
+
+  // Initialize scroll animations
+  function initScrollAnimations() {
+    const animateOnScroll = () => {
+      // Only target elements in the blogs and projects sections
+      const elements = document.querySelectorAll('.blogs-grid .blog-card, .projects-grid .project-card, .section-header');
+      
+      elements.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+        
+        if (elementTop < windowHeight - 100) {
+          element.style.opacity = '1';
+          element.style.transform = 'translateY(0)';
+        }
+      });
+    };
+
+    // Set initial styles only for blog and project cards in their respective sections
+    document.querySelectorAll('.blogs-grid .blog-card, .projects-grid .project-card').forEach(card => {
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(30px)';
+      card.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+    });
+
+    document.querySelectorAll('.section-header').forEach(header => {
+      header.style.opacity = '0';
+      header.style.transform = 'translateY(-20px)';
+      header.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+    });
+
+    // Add scroll event listener with debounce for better performance
+    let isScrolling;
+    window.addEventListener('scroll', () => {
+      window.clearTimeout(isScrolling);
+      isScrolling = setTimeout(animateOnScroll, 50);
+    }, { passive: true });
+    
+    // Initial check in case elements are already in view
+    animateOnScroll();
+  }
+
+
+  // Initialize hover effects
+  function initHoverEffects() {
+    const cards = document.querySelectorAll('.blog-card, .project-card');
+    
+    cards.forEach(card => {
+      const link = card.querySelector('a');
+      const content = card.querySelector('.blog-card-content, .project-card-content');
+      
+      if (!link || !content) return;
+      
+      // Add hover effect for touch devices
+      card.addEventListener('click', (e) => {
+        if (e.target.tagName === 'A' || e.target.closest('a')) return;
+        link.click();
+      });
+      
+      // Add keyboard navigation
+      card.setAttribute('tabindex', '0');
+      card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          link.click();
+        }
+      });
+    });
+    
+    // Add hover effect for project card overlays
+    const projectCards = document.querySelectorAll('.project-card');
+    projectCards.forEach(card => {
+      const overlay = card.querySelector('.project-card-overlay');
+      if (!overlay) return;
+      
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        overlay.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(67, 97, 238, 0.9), rgba(67, 97, 238, 0.7))`;
+      });
+      
+      card.addEventListener('mouseleave', () => {
+        overlay.style.background = 'rgba(0, 0, 0, 0.7)';
+      });
+    });
   }
 
   // -------------------------------------------------------------------
@@ -107,79 +197,9 @@
   // CAROUSEL CONTROL
   // -------------------------------------------------------------------
 
+  // Initialize carousels (simplified version without progress bars)
   function initCarousels() {
-    const setupCarousel = (carouselId, thumbId) => {
-      const carousel = document.getElementById(carouselId);
-      const thumb = document.getElementById(thumbId);
-      if (!carousel || !thumb) return;
-
-      const track = thumb.parentElement;
-      let isDragging = false;
-      let maxScroll = 0,
-        trackWidth = 0,
-        thumbWidth = 0;
-
-      const updateDimensions = () => {
-        maxScroll = carousel.scrollWidth - carousel.parentElement.offsetWidth;
-        trackWidth = track.offsetWidth;
-        thumbWidth = thumb.offsetWidth;
-        updateThumbPosition();
-      };
-
-      const getCurrentScroll = () =>
-        parseFloat(
-          carousel.style.transform.match(
-            /translateX\(-?(\d*\.?\d*)px\)/
-          )?.[1] || 0
-        );
-      const setCarouselPosition = (scrollAmount) => {
-        carousel.style.transform = `translateX(-${Math.max(
-          0,
-          Math.min(scrollAmount, maxScroll)
-        )}px)`;
-        updateThumbPosition();
-      };
-      const updateThumbPosition = () => {
-        const maxThumbPos = trackWidth - thumbWidth;
-        thumb.style.left =
-          maxScroll > 0
-            ? `${Math.min(
-                (getCurrentScroll() / maxScroll) * maxThumbPos,
-                maxThumbPos
-              )}px`
-            : "0px";
-      };
-      const handleDrag = (clientX) => {
-        const rect = track.getBoundingClientRect();
-        const percentage = Math.max(
-          0,
-          Math.min(1, (clientX - rect.left) / trackWidth)
-        );
-        setCarouselPosition(percentage * maxScroll);
-      };
-
-      const onPointerMove = (e) => isDragging && handleDrag(e.clientX);
-      const onPointerUp = () => (isDragging = false);
-
-      thumb.addEventListener("pointerdown", (e) => {
-        isDragging = true;
-        thumb.setPointerCapture(e.pointerId);
-        e.preventDefault();
-      });
-      document.addEventListener("pointermove", onPointerMove);
-      document.addEventListener("pointerup", onPointerUp);
-      thumb.addEventListener("lostpointercapture", onPointerUp);
-      track.addEventListener(
-        "click",
-        (e) => e.target !== thumb && handleDrag(e.clientX)
-      );
-
-      updateDimensions();
-      window.addEventListener("resize", updateDimensions, { passive: true });
-    };
-
-    setupCarousel("projectsCarousel", "progressThumb");
-    setupCarousel("blogsCarousel", "blogProgressThumb");
+    // No additional carousel functionality needed for now
   }
 
   // -------------------------------------------------------------------

@@ -2,6 +2,24 @@
    BASE & GLOBAL STYLES
    =================================================================== */
 :root {
+  --primary-color: #4361ee;
+  --secondary-color: #3f37c9;
+  --accent-color: #4895ef;
+  --text-color: #2b2d42;
+  --light-bg: #f8f9fa;
+  --dark-bg: #212529;
+  --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+  --border-radius: 12px;
+}
+
+[data-bs-theme="dark"] {
+  --text-color: #f8f9fa;
+  --light-bg: #212529;
+  --dark-bg: #f8f9fa;
+  --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+:root {
   --main-gradient: linear-gradient(
     135deg,
     #ffffff,
@@ -27,14 +45,290 @@
 }
 
 body {
-  background: linear-gradient(
-    135deg,
-    #fff8f1,
-    #e2d1c3,
-    #6ea3f8,
-    #c2e9fb
-  ) !important;
-  transition: background-color 1s ease, color 1s ease;
+  background: var(--light-bg);
+  color: var(--text-color);
+  transition: var(--transition);
+  line-height: 1.6;
+}
+
+/* Section Headers */
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section-subtitle {
+  display: block;
+  color: var(--accent-color);
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  position: relative;
+  display: inline-block;
+}
+
+.divider {
+  width: 60px;
+  height: 4px;
+  background: var(--primary-color);
+  margin: 0 auto;
+  border-radius: 2px;
+}
+
+/* Blog Grid */
+.blogs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+  align-items: stretch;
+}
+
+.blog-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.blog-card {
+  background: white;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+  transition: var(--transition);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(0,0,0,0.1);
+}
+
+.blog-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.blog-card-image {
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.blog-card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.7));
+  transition: var(--transition);
+}
+
+.blog-card:hover .blog-card-overlay {
+  opacity: 0.8;
+}
+
+.blog-category {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: var(--primary-color);
+  color: white;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  z-index: 2;
+}
+
+.blog-card-content {
+  padding: 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.blog-card-date {
+  color: #6c757d;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.blog-card-title {
+  font-size: 1.4rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.4;
+}
+
+.blog-card-excerpt {
+  color: #6c757d;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.read-more {
+  color: var(--primary-color);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  transition: var(--transition);
+}
+
+.read-more i {
+  margin-left: 0.5rem;
+  transition: var(--transition);
+}
+
+.blog-card:hover .read-more {
+  transform: translateX(5px);
+}
+
+/* Projects Grid */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+  align-items: stretch;
+}
+
+.project-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card-image {
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.project-card {
+  background: white;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+  transition: var(--transition);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(0,0,0,0.1);
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.project-card-image {
+  height: 220px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.project-card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  transition: var(--transition);
+  display: flex;
+  align-items: flex-end;
+  padding: 1.5rem;
+}
+
+.project-card:hover .project-card-overlay {
+  opacity: 1;
+}
+
+.project-card-tag {
+  background: var(--primary-color);
+  color: white;
+  padding: 0.3rem 1rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.project-card-content {
+  padding: 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card-title {
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.4;
+}
+
+.project-card-description {
+  color: #6c757d;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.project-card-footer {
+  display: flex;
+  align-items: center;
+  color: var(--primary-color);
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.project-card-link:hover .project-card-footer {
+  transform: translateX(5px);
+}
+
+.project-card-link-text {
+  margin-right: 0.5rem;
+}
+
+/* Dark Mode Adjustments */
+[data-bs-theme="dark"] .blog-card,
+[data-bs-theme="dark"] .project-card {
+  background: #2d3748;
+  color: #e2e8f0;
+}
+
+[data-bs-theme="dark"] .blog-card-excerpt,
+[data-bs-theme="dark"] .project-card-description {
+  color: #a0aec0;
+}
+
+[data-bs-theme="dark"] .blog-card-date {
+  color: #a0aec0;
+}
+
+/* Footer Light Mode Styles */
+:root:not([data-bs-theme="dark"]) footer .text-body-secondary,
+:root:not([data-bs-theme="dark"]) footer .Border-top {
+  color: #000000 !important;
+  border-color: #000000 !important;
+}
+
+:root:not([data-bs-theme="dark"]) footer .gradient-icon svg {
+  fill: #000000;
+}
+
+:root:not([data-bs-theme="dark"]) footer .gradient-icon:hover svg {
+  fill: #4361ee;
+  transition: fill 0.3s ease;
 }
 
 .container,
