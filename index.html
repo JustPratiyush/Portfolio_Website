@@ -1,20 +1,15 @@
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="light">
   <head>
-    <!-- Meta Tags -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PortFolio</title>
-
-    <!-- Font Imports -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
-
-    <!-- Audio Preload -->
     <audio
       id="hover-sound"
       src="assets/sounds/click.mp3"
@@ -25,74 +20,91 @@
       src="assets/sounds/click2.mp3"
       preload="auto"
     ></audio>
-
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="css/styles.css" />
-    <link rel="stylesheet" href="css/dark-mode.css" />
-    <link rel="stylesheet" href="css/carousel.css" />
-
+    <link rel="stylesheet" href="styles.css" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7"
       crossorigin="anonymous"
     />
-
-    <!-- Fevicon -->
     <link rel="icon" href="/assets/images/fevicon.ico" type="image/x-icon" />
   </head>
   <body>
-    <!-- Dark Mode Toggle Button -->
+    <svg width="0" height="0" style="position: absolute">
+      <defs>
+        <linearGradient id="iconGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color: #ffffff" />
+          <stop offset="33%" style="stop-color: #ffe4ce" />
+          <stop offset="66%" style="stop-color: hsl(0, 0%, 100%)" />
+          <stop offset="100%" style="stop-color: #9ee0ff" />
+        </linearGradient>
+        <symbol id="icon-moon" viewBox="0 0 24 24">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+        </symbol>
+        <symbol id="icon-sun" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="5" />
+          <line x1="12" y1="1" x2="12" y2="3" />
+          <line x1="12" y1="21" x2="12" y2="23" />
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+          <line x1="1" y1="12" x2="3" y2="12" />
+          <line x1="21" y1="12" x2="23" y2="12" />
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+        </symbol>
+        <symbol id="icon-instagram" viewBox="0 0 16 16">
+          <path
+            d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"
+          />
+        </symbol>
+        <symbol id="icon-github" viewBox="0 0 16 16">
+          <path
+            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"
+          />
+        </symbol>
+        <symbol id="icon-twitter" viewBox="0 0 16 16">
+          <path
+            d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"
+          />
+        </symbol>
+        <symbol id="icon-linkedin" viewBox="0 0 16 16">
+          <path
+            d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"
+          />
+        </symbol>
+      </defs>
+    </svg>
+
     <div class="mode-tog">
       <svg
         class="moon-icon"
-        xmlns="http://www.w3.org/2000/svg"
-        width="18"
-        height="18"
-        viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"
         stroke-width="2"
         stroke-linecap="round"
         stroke-linejoin="round"
       >
-        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        <use href="#icon-moon" />
       </svg>
-
       <svg
         class="sun-icon"
-        xmlns="http://www.w3.org/2000/svg"
-        width="18"
-        height="18"
-        viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"
         stroke-width="2"
         stroke-linecap="round"
         stroke-linejoin="round"
       >
-        <circle cx="12" cy="12" r="5"></circle>
-        <line x1="12" y1="1" x2="12" y2="3"></line>
-        <line x1="12" y1="21" x2="12" y2="23"></line>
-        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-        <line x1="1" y1="12" x2="3" y2="12"></line>
-        <line x1="21" y1="12" x2="23" y2="12"></line>
-        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        <use href="#icon-sun" />
       </svg>
     </div>
-    <div class="Togglecontainer">
-      <div class="dark-mode"></div>
-    </div>
+    <div class="Togglecontainer"><div class="dark-mode"></div></div>
 
-    <!-- Hero Section -->
     <section class="HeroSection">
       <div class="container col-xxl-8 px-4 pt-5">
         <div
           class="row flex-lg-row-reverse align-items-center g-5 pt-5 hero-container"
         >
-          <div class="col-10 col-sm-8 col-lg-6 circle-container">
+          <div class="col-10 col-sm-8 col-lg-6">
             <div class="image-container hover-sound-trigger position-relative">
               <img
                 src="assets/images/ghibli.webp"
@@ -102,7 +114,6 @@
               <div class="image-tooltip">Click to see my Reading List</div>
             </div>
           </div>
-
           <div class="col-lg-6 HeroText">
             <div class="headline-wrapper">
               <h1 class="fw-bold text-body-emphasis lh-1 mb-1 NiceFont">
@@ -113,15 +124,12 @@
                 viewBox="59.52 132.17 877.5 60.68"
                 preserveAspectRatio="xMinYMin meet"
                 width="100%"
-                style="display: block; margin-top: -0.2em"
               >
                 <g
                   transform="translate(0, 162.51) scale(1, 0.5) translate(0, -162.51)"
                 >
                   <path
                     fill="currentColor"
-                    opacity="1.000000"
-                    stroke="none"
                     d=" M474.999451,155.891510 C520.800476,154.729294 566.118225,154.432480 611.422485,153.553085 C648.218323,152.838867 685.016296,151.688980 721.803772,150.501007 C761.945312,149.204727 802.083374,148.629364 842.240479,148.559814 C866.719910,148.517410 891.198914,148.011200 915.542847,144.946030 C917.680725,144.676849 919.872192,144.760376 922.037109,144.792389 C929.968018,144.909622 935.996765,150.075729 936.940308,157.506409 C937.750671,163.889313 932.680603,170.223099 925.093933,172.045258 C915.653564,174.312592 905.958496,174.549408 896.342285,175.143036 C858.120422,177.502533 819.872009,179.360382 781.775574,183.550583 C761.094177,185.825317 740.305481,187.036163 719.528625,188.312439 C668.437744,191.450806 617.275818,190.583847 566.146484,191.575302 C530.333801,192.269775 494.526489,192.861084 458.711426,192.844681 C429.218903,192.831177 399.716431,192.831345 370.238037,192.066879 C352.882294,191.616776 335.771729,188.654266 319.676880,181.563507 C310.417572,177.484207 303.701965,170.753357 299.968994,161.324585 C297.682556,155.549576 293.595001,153.361267 287.570496,153.283524 C264.291138,152.983170 241.428650,156.598526 218.558197,160.243317 C186.346985,165.376709 154.081940,170.199265 122.215477,177.285629 C109.541733,180.103973 96.879044,182.987152 84.150063,185.534714 C78.952812,186.574905 73.637901,187.477798 68.285461,187.105637 C64.340729,186.831375 60.373322,185.988770 59.621883,181.187469 C58.872562,176.399673 62.534424,174.799484 66.116257,173.708267 C82.370689,168.756287 99.058311,165.501999 115.501106,161.286469 C156.036057,150.894302 197.243286,144.226532 238.691483,138.897308 C256.853088,136.562195 275.023651,134.258820 293.232788,132.346970 C302.598114,131.363663 310.991852,134.366409 316.309662,142.442566 C321.009705,149.580429 327.465424,153.074356 335.437195,154.752075 C349.026855,157.612137 362.861084,158.308777 376.640259,158.855652 C404.471802,159.960220 432.250854,158.159836 460.008148,156.170395 C464.820801,155.825439 469.668854,155.974396 474.999451,155.891510 z"
                   />
                 </g>
@@ -143,15 +151,15 @@
             >
               <button
                 type="button"
+                id="contactBtn"
                 class="btn btn-primary btn-lg px-4 me-md-2 MainButton hover-sound-trigger"
-                onclick="window.location.href='mailto:pratiyushkuchhal@gmail.com'"
               >
                 Contact Me
               </button>
               <button
                 type="button"
+                id="projectsScrollBtn"
                 class="btn btn-outline-dark btn-lg px-4 MainButton hover-sound-trigger"
-                onclick="document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });"
               >
                 Projects
               </button>
@@ -161,7 +169,6 @@
       </div>
     </section>
 
-    <!-- Skills Section -->
     <section class="skills-section py-5">
       <div class="container">
         <h2
@@ -169,13 +176,10 @@
         >
           My Skills 🛠️
         </h2>
-
         <div class="row g-4">
-          <!-- Creative Skills -->
           <div class="col-md-6">
             <div class="skills-category">
               <h3 class="fs-3 fw-light">Creative</h3>
-
               <div class="skills-logos-container">
                 <div
                   class="skill-logo-wrapper hover-sound-trigger"
@@ -238,25 +242,20 @@
                   />
                 </div>
               </div>
-              <div>
-                <p class="mt-4">
-                  Great at Leveraging
-                  <span class="skill-tag">AI in Coding</span> . have a great
-                  taste in <span class="skill-tag">UX/UI</span>.
-                </p>
-                <p>
-                  I am very creative at Image Generation, knows Basic Photoshop
-                  and Video Editing.
-                </p>
-              </div>
+              <p class="mt-4">
+                Great at Leveraging
+                <span class="skill-tag">AI in Coding</span> . have a great taste
+                in <span class="skill-tag">UX/UI</span>.
+              </p>
+              <p>
+                I am very creative at Image Generation, knows Basic Photoshop
+                and Video Editing.
+              </p>
             </div>
           </div>
-
-          <!-- Programming Skills -->
           <div class="col-md-6">
             <div class="skills-category">
               <h3 class="fs-3 fw-light">Programming</h3>
-
               <div class="skills-logos-container">
                 <div
                   class="skill-logo-wrapper hover-sound-trigger"
@@ -268,7 +267,6 @@
                     class="skill-logo"
                   />
                 </div>
-
                 <div
                   class="skill-logo-wrapper hover-sound-trigger"
                   data-skill="NPM"
@@ -279,7 +277,6 @@
                     class="skill-logo"
                   />
                 </div>
-
                 <div
                   class="skill-logo-wrapper hover-sound-trigger"
                   data-skill="React"
@@ -290,7 +287,6 @@
                     class="skill-logo"
                   />
                 </div>
-
                 <div
                   class="skill-logo-wrapper hover-sound-trigger"
                   data-skill="C Language"
@@ -321,39 +317,32 @@
                     class="skill-logo"
                   />
                 </div>
-
-                <div>
-                  <p class="mt-4">
-                    Proficient in
-                    <span class="skill-tag">Full-Stack Development</span> with
-                    expertise in modern web technologies and
-                    <span class="skill-tag">Database Management</span>.
-                  </p>
-                  <p class="mb-4">Learning more things on the way.</p>
-                </div>
               </div>
+              <p class="mt-4">
+                Proficient in
+                <span class="skill-tag">Full-Stack Development</span> with
+                expertise in modern web technologies and
+                <span class="skill-tag">Database Management</span>.
+              </p>
+              <p class="mb-4">Learning more things on the way.</p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Blogs Sections -->
-
     <section class="py-5">
       <div class="container">
         <h2 class="mb-5 mt-5 fw-bold text-sm NiceFont circle-container">
           Latest Blogs 📝
         </h2>
-
         <div class="blogs-carousel-container carousel-container">
           <div class="blogs-carousel carousel-track" id="blogsCarousel">
             <div class="cardsize col hover-sound-trigger">
               <a
                 href="blog/understanding-web-performance.html"
                 class="text-decoration-none text-dark"
-              >
-                <div
+                ><div
                   class="card blog-card h-100 d-flex flex-column shadow-sm rounded-4 hover-effect"
                 >
                   <img
@@ -375,20 +364,18 @@
                       Core Web Vitals and modern performance metrics.
                     </p>
                     <div class="mt-auto">
-                      <span class="badge bg-primary">Performance</span>
-                      <span class="badge bg-secondary">Web Dev</span>
+                      <span class="badge bg-primary">Performance</span
+                      ><span class="badge bg-secondary">Web Dev</span>
                     </div>
                   </div>
-                </div>
-              </a>
+                </div></a
+              >
             </div>
-
             <div class="cardsize col hover-sound-trigger">
               <a
                 href="blog/ai-in-web-development.html"
                 class="text-decoration-none text-dark"
-              >
-                <div
+                ><div
                   class="card blog-card h-100 d-flex flex-column shadow-sm rounded-4 hover-effect"
                 >
                   <img
@@ -408,20 +395,18 @@
                       and beyond.
                     </p>
                     <div class="mt-auto">
-                      <span class="badge bg-success">AI</span>
-                      <span class="badge bg-info">Future Tech</span>
+                      <span class="badge bg-success">AI</span
+                      ><span class="badge bg-info">Future Tech</span>
                     </div>
                   </div>
-                </div>
-              </a>
+                </div></a
+              >
             </div>
-
             <div class="cardsize col hover-sound-trigger">
               <a
                 href="blog/modern-css-techniques.html"
                 class="text-decoration-none text-dark"
-              >
-                <div
+                ><div
                   class="card blog-card h-100 d-flex flex-column shadow-sm rounded-4 hover-effect"
                 >
                   <img
@@ -441,20 +426,18 @@
                       transform your designs.
                     </p>
                     <div class="mt-auto">
-                      <span class="badge bg-warning">CSS</span>
-                      <span class="badge bg-danger">Design</span>
+                      <span class="badge bg-warning">CSS</span
+                      ><span class="badge bg-danger">Design</span>
                     </div>
                   </div>
-                </div>
-              </a>
+                </div></a
+              >
             </div>
-
             <div class="cardsize col hover-sound-trigger">
               <a
                 href="blog/startup-lessons-learned.html"
                 class="text-decoration-none text-dark"
-              >
-                <div
+                ><div
                   class="card blog-card h-100 d-flex flex-column shadow-sm rounded-4 hover-effect"
                 >
                   <img
@@ -474,20 +457,18 @@
                       product development.
                     </p>
                     <div class="mt-auto">
-                      <span class="badge bg-purple">Startup</span>
-                      <span class="badge bg-dark">Business</span>
+                      <span class="badge bg-purple">Startup</span
+                      ><span class="badge bg-dark">Business</span>
                     </div>
                   </div>
-                </div>
-              </a>
+                </div></a
+              >
             </div>
-
             <div class="cardsize col hover-sound-trigger">
               <a
                 href="blog/neuroscience-and-ux.html"
                 class="text-decoration-none text-dark"
-              >
-                <div
+                ><div
                   class="card blog-card h-100 d-flex flex-column shadow-sm rounded-4 hover-effect"
                 >
                   <img
@@ -507,27 +488,25 @@
                       principles.
                     </p>
                     <div class="mt-auto">
-                      <span class="badge bg-light text-dark">Neuroscience</span>
-                      <span class="badge bg-primary">UX</span>
+                      <span class="badge bg-light text-dark">Neuroscience</span
+                      ><span class="badge bg-primary">UX</span>
                     </div>
                   </div>
-                </div>
-              </a>
+                </div></a
+              >
             </div>
           </div>
         </div>
-
         <div class="carousel-progress-container">
           <div class="carousel-progress-track">
             <div class="carousel-progress-thumb" id="blogProgressThumb"></div>
           </div>
         </div>
-
         <div class="text-center mt-4">
           <button
             type="button"
+            id="viewAllBlogsBtn"
             class="btn btn-outline-primary btn-lg px-4 MainButton hover-sound-trigger"
-            onclick="window.location.href='blog/'"
           >
             View All Blogs
           </button>
@@ -535,25 +514,20 @@
       </div>
     </section>
 
-    <!-- Projects Section -->
     <section id="projects" class="py-5">
       <div class="container">
         <h2 class="mt-5 mb-5 fw-bold text-sm NiceFont circle-container">
           My Projects 📁
         </h2>
-
-        <!-- Shared Carousel Container -->
         <div class="carousel-container">
           <div class="carousel-track" id="projectsCarousel">
-            <!-- Vastu Vistar -->
             <div class="cardsize col hover-sound-trigger">
               <a
                 href="https://www.vastuvistar.com/"
                 class="text-decoration-none text-dark"
                 target="_blank"
                 rel="noopener noreferrer"
-              >
-                <div
+                ><div
                   class="card blog-card h-100 d-flex flex-column shadow-sm rounded-4 hover-effect"
                 >
                   <img
@@ -575,26 +549,21 @@
                         src="/assets/logos/HTML_CSS_JS_Logo.png"
                         alt="Frontend Logo"
                         class="project-skill-logo"
-                      />
-                      <img
+                      /><img
                         src="/assets/logos/claude-ai-icon.png"
-                        alt="CSS3"
+                        alt="Claude AI"
                         class="project-skill-logo"
                       />
                     </div>
-                  </div>
-                </div>
-              </a>
+                  </div></div
+              ></a>
             </div>
-
-            <!-- HackYours -->
             <div class="cardsize col hover-sound-trigger">
               <a
                 href="https://hackyours.raghavkatta.xyz/"
                 class="text-decoration-none text-dark"
                 target="_blank"
-              >
-                <div
+                ><div
                   class="card blog-card h-100 d-flex flex-column shadow-sm rounded-4 hover-effect"
                 >
                   <img
@@ -616,27 +585,22 @@
                         src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg"
                         alt="Figma"
                         class="project-skill-logo"
-                      />
-                      <img
+                      /><img
                         src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/photoshop/photoshop-original.svg"
                         alt="Photoshop"
                         class="project-skill-logo"
                       />
                     </div>
-                  </div>
-                </div>
-              </a>
+                  </div></div
+              ></a>
             </div>
-
-            <!-- TinDog -->
             <div class="cardsize col hover-sound-trigger">
               <a
                 href="https://tinder-but-for-dogs.vercel.app/"
                 class="text-decoration-none text-dark"
                 target="_blank"
                 rel="noopener noreferrer"
-              >
-                <div
+                ><div
                   class="card blog-card h-100 d-flex flex-column shadow-sm rounded-4 hover-effect"
                 >
                   <img
@@ -658,32 +622,26 @@
                         src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg"
                         alt="HTML5"
                         class="project-skill-logo"
-                      />
-                      <img
+                      /><img
                         src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg"
                         alt="CSS3"
                         class="project-skill-logo"
-                      />
-                      <img
+                      /><img
                         src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg"
                         alt="JavaScript"
                         class="project-skill-logo"
                       />
                     </div>
-                  </div>
-                </div>
-              </a>
+                  </div></div
+              ></a>
             </div>
-
-            <!-- Causeway -->
             <div class="cardsize col hover-sound-trigger">
               <a
                 href="https://www.figma.com/design/qTIFz2HWxLFwJiPy1Xgz6J/Causeway-App?node-id=0-1"
                 class="text-decoration-none text-dark"
                 target="_blank"
                 rel="noopener noreferrer"
-              >
-                <div
+                ><div
                   class="card blog-card h-100 d-flex flex-column shadow-sm rounded-4 hover-effect"
                 >
                   <img
@@ -707,20 +665,16 @@
                         class="project-skill-logo"
                       />
                     </div>
-                  </div>
-                </div>
-              </a>
+                  </div></div
+              ></a>
             </div>
-
-            <!-- AI Medical Assistant -->
             <div class="cardsize col hover-sound-trigger">
               <a
                 href="https://github.com/JustPratiyush/AI-Powered-Medical-Assistant"
                 class="text-decoration-none text-dark"
                 target="_blank"
                 rel="noopener noreferrer"
-              >
-                <div
+                ><div
                   class="card blog-card h-100 d-flex flex-column shadow-sm rounded-4 hover-effect"
                 >
                   <img
@@ -742,31 +696,26 @@
                         src="/assets/logos/chatgpt-icon.png"
                         alt="OpenAI"
                         class="project-skill-logo"
-                      />
-                      <img
+                      /><img
                         src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg"
                         alt="Python"
                         class="project-skill-logo"
                       />
                     </div>
-                  </div>
-                </div>
-              </a>
+                  </div></div
+              ></a>
             </div>
           </div>
-
-          <!-- Progress Bar -->
           <div class="carousel-progress-container mt-4">
             <div class="carousel-progress-track">
               <div class="carousel-progress-thumb" id="progressThumb"></div>
             </div>
           </div>
-
           <div class="text-center mt-4">
             <button
               type="button"
+              id="viewAllProjectsBtn"
               class="btn btn-outline-primary btn-lg px-4 MainButton hover-sound-trigger"
-              onclick="window.location.href='blog/'"
             >
               View All Projects
             </button>
@@ -775,24 +724,15 @@
       </div>
     </section>
 
-    <!-- Footer -->
     <footer class="container">
       <div
         class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 Border-top"
       >
         <div class="col-md-4 d-flex align-items-center">
-          <a
-            href="/"
-            class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1"
-            aria-label="Bootstrap"
-            target="_blank"
-            rel="noopener noreferrer"
-          ></a>
           <span class="mb-3 mb-md-0 text-body-secondary"
             >© 2025 AbhinavKuchhal, Inc</span
           >
         </div>
-
         <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
           <li class="ms-3">
             <a
@@ -801,20 +741,9 @@
               aria-label="Instagram"
               target="_blank"
               rel="noopener noreferrer"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                fill="currentColor"
-                class="bi bi-instagram"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"
-                />
-              </svg>
-            </a>
+              ><svg width="24" height="24" fill="currentColor">
+                <use href="#icon-instagram" /></svg
+            ></a>
           </li>
           <li class="ms-3">
             <a
@@ -823,20 +752,9 @@
               aria-label="Github"
               target="_blank"
               rel="noopener noreferrer"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                fill="currentColor"
-                class="bi bi-github"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"
-                />
-              </svg>
-            </a>
+              ><svg width="24" height="24" fill="currentColor">
+                <use href="#icon-github" /></svg
+            ></a>
           </li>
           <li class="ms-3">
             <a
@@ -845,20 +763,9 @@
               aria-label="Twitter/X"
               target="_blank"
               rel="noopener noreferrer"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                fill="currentColor"
-                class="bi bi-twitter-x"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"
-                />
-              </svg>
-            </a>
+              ><svg width="24" height="24" fill="currentColor">
+                <use href="#icon-twitter" /></svg
+            ></a>
           </li>
           <li class="ms-3">
             <a
@@ -867,65 +774,20 @@
               aria-label="linkedin"
               target="_blank"
               rel="noopener noreferrer"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                fill="currentColor"
-                class="bi bi-linkedin"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"
-                />
-              </svg>
-            </a>
+              ><svg width="24" height="24" fill="currentColor">
+                <use href="#icon-linkedin" /></svg
+            ></a>
           </li>
         </ul>
       </div>
     </footer>
-
-    <!-- Add gradient definition for SVGs -->
-    <svg width="0" height="0" style="position: absolute">
-      <defs>
-        <linearGradient id="iconGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" style="stop-color: #ffffff; stop-opacity: 1" />
-          <stop offset="33%" style="stop-color: #ffe4ce; stop-opacity: 1" />
-          <stop
-            offset="66%"
-            style="stop-color: hsl(0, 0%, 100%); stop-opacity: 1"
-          />
-          <stop offset="100%" style="stop-color: #9ee0ff; stop-opacity: 1" />
-        </linearGradient>
-      </defs>
-    </svg>
-
-    <!-- Scripts -->
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
       crossorigin="anonymous"
     ></script>
-
-    <!-- Dark Mode -->
-
-    <script src="js/dark-mode.js"></script>
-
-    <!-- Typing Animation -->
-
-    <script src="js/typing-animation.js"></script>
-
-    <!-- Buttons Delay -->
-
-    <script src="js/button-delay.js" defer></script>
-
-    <!-- Carousel Control-->
-    <script src="js/carousel-control.js"></script>
-
-    <!-- Vercel Analytics -->
-
+    <script src="main.js" defer></script>
     <script>
       window.va =
         window.va ||
@@ -933,9 +795,6 @@
           (window.vaq = window.vaq || []).push(arguments);
         };
     </script>
-
-    <script defer src="/_vercel/insights/script.js"></script>
-
-    <!-- END -->
+    <script src="/_vercel/insights/script.js"></script>
   </body>
 </html>

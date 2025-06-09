@@ -1,0 +1,546 @@
+/* ===================================================================
+   BASE & GLOBAL STYLES
+   =================================================================== */
+:root {
+  --main-gradient: linear-gradient(
+    135deg,
+    #ffffff,
+    #ffe4ce,
+    hsl(0, 0%, 100%),
+    #9ee0ff
+  );
+  --skill-gradient: linear-gradient(90deg, #0c6dfd, #8533ff);
+  --logo-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --hover-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+@font-face {
+  font-family: "Virgil";
+  src: url("/assets/fonts/Virgil.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
+}
+
+body {
+  background: linear-gradient(
+    135deg,
+    #fff8f1,
+    #e2d1c3,
+    #6ea3f8,
+    #c2e9fb
+  ) !important;
+  transition: background-color 1s ease, color 1s ease;
+}
+
+.container,
+section {
+  position: relative;
+  z-index: 1;
+}
+
+/* ===================================================================
+     REUSABLE COMPONENTS & UTILITIES
+     =================================================================== */
+.MainButton {
+  border-radius: 50px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.MainButton:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(4, 2, 2, 0.1);
+}
+
+.NiceFont {
+  font-family: "Virgil", "Poppins", sans-serif;
+}
+
+.hover-effect {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.hover-effect:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+  background: var(--main-gradient) !important;
+  border-radius: 0 0 15px 15px;
+}
+
+/* ===================================================================
+     HERO SECTION & TYPING ANIMATION
+     =================================================================== */
+.headline-wrapper {
+  display: inline-block;
+  position: relative;
+}
+.stroke {
+  height: auto;
+  display: block;
+  vertical-align: bottom;
+  margin-top: -0.2em;
+}
+.stroke path {
+  fill: currentColor;
+}
+.lead {
+  padding-top: 25px;
+  font-size: 1rem;
+}
+.Profile-Photo {
+  border-radius: 100px;
+  height: 600px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.image-container {
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+}
+.image-tooltip {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  padding: 10px 15px;
+  border-radius: 8px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 100;
+  width: 80%;
+  text-align: center;
+}
+
+.image-container::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: inherit; /* Inherit radius from image container */
+}
+
+.image-container:hover::after,
+.image-container.overlay-active::after {
+  opacity: 1;
+}
+.image-container:hover .image-tooltip,
+.image-container.overlay-active .image-tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+.typing-container {
+  position: relative;
+}
+p.Typing.waiting {
+  opacity: 0;
+}
+.typing-cursor {
+  display: inline-block;
+  width: 2px;
+  background-color: #000;
+  animation: blink-caret 0.75s step-end infinite;
+  margin-left: 1px;
+  height: 1.2em;
+  vertical-align: middle;
+}
+@keyframes blink-caret {
+  50% {
+    opacity: 1;
+  }
+}
+
+.ButtonsContainer {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+}
+.ButtonsContainer.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ===================================================================
+     SKILLS SECTION
+     =================================================================== */
+.skills-category {
+  background: var(--main-gradient);
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  height: 100%;
+}
+.skills-category:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+}
+.skills-category h3 {
+  color: #2c3e50;
+  font-weight: 600;
+  margin-bottom: 25px;
+  position: relative;
+  padding-bottom: 10px;
+}
+.skills-category h3::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 75px;
+  height: 3px;
+  background: var(--skill-gradient);
+  border-radius: 2px;
+}
+.skill-tag {
+  background: var(--skill-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.skills-logos-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: flex-start;
+  align-items: center;
+}
+.skill-logo-wrapper {
+  position: relative;
+  transition: all 0.3s ease;
+}
+.skill-logo {
+  width: 55px;
+  height: 55px;
+  padding: 8px;
+  background: #ffffff;
+  border: 2px solid #e9ecef;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  box-shadow: var(--logo-shadow);
+  object-fit: contain;
+}
+.skill-logo-wrapper:hover {
+  transform: translateY(-5px) rotate(5deg);
+}
+.skill-logo-wrapper:hover .skill-logo {
+  border-color: #0c6dfd;
+  box-shadow: var(--hover-shadow);
+  background: linear-gradient(135deg, #ffffff, #f8f9ff);
+}
+.skill-logo-wrapper::after {
+  content: attr(data-skill);
+  position: absolute;
+  bottom: 125%; /* Position above the element */
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+.skill-logo-wrapper:hover::after {
+  opacity: 1;
+  visibility: visible;
+  bottom: 100%;
+}
+
+/* ===================================================================
+     CAROUSEL (Blogs & Projects)
+     =================================================================== */
+.carousel-container {
+  overflow: hidden;
+  padding: 0 40px;
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 5%,
+    black 95%,
+    transparent
+  );
+}
+.carousel-track {
+  display: flex;
+  gap: 20px;
+  transition: transform 0.3s ease;
+  padding: 10px 0;
+}
+.cardsize {
+  flex: 0 0 340px;
+}
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+.project-skill-logo {
+  width: 25px;
+  height: 25px;
+  box-shadow: var(--logo-shadow);
+  object-fit: contain;
+}
+
+.carousel-progress-container {
+  width: 100%;
+  padding: 30px 0;
+  display: flex;
+  justify-content: center;
+}
+.carousel-progress-track {
+  width: 90%;
+  max-width: 600px;
+  height: 10px;
+  background: var(--main-gradient);
+  border-radius: 5px;
+  position: relative;
+  cursor: pointer;
+}
+.carousel-progress-thumb {
+  width: 50px;
+  height: 16px;
+  background: var(--skill-gradient);
+  border-radius: 8px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: grab;
+  z-index: 2;
+}
+.carousel-progress-thumb:active {
+  cursor: grabbing;
+}
+
+/* ===================================================================
+     FOOTER & DARK MODE
+     =================================================================== */
+.Border-top {
+  position: relative;
+  border-top: 2px solid transparent;
+}
+.Border-top::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background: var(--main-gradient);
+}
+footer .text-body-secondary {
+  background: var(--main-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent !important;
+}
+footer .gradient-icon svg {
+  fill: url(#iconGradient);
+}
+
+.mode-tog {
+  position: fixed;
+  right: 30px;
+  top: 30px;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  z-index: 11;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: background-color 1s ease;
+  background-color: black;
+}
+.mode-tog.active {
+  background-color: white;
+}
+.mode-tog svg {
+  position: absolute;
+  transition: all 0.5s ease;
+  height: 20px;
+  width: 20px;
+}
+.mode-tog .moon-icon {
+  stroke: white;
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+.mode-tog .sun-icon {
+  stroke: black;
+  opacity: 0;
+  transform: rotate(180deg) scale(0.5);
+}
+.mode-tog.active .moon-icon {
+  opacity: 0;
+  transform: rotate(-180deg) scale(0.5);
+}
+.mode-tog.active .sun-icon {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+.Togglecontainer {
+  position: fixed;
+  right: 30px;
+  top: 30px;
+  pointer-events: none;
+}
+.dark-mode {
+  position: fixed;
+  top: 50px; /* center on toggle */
+  right: 50px; /* center on toggle */
+  transform: translate(50%, -50%) scale(0);
+  width: 350vmax;
+  height: 350vmax;
+  border-radius: 50%;
+  background-color: black;
+  transition: transform 1s ease-in-out;
+}
+.dark-mode.active {
+  transform: translate(50%, -50%) scale(1);
+}
+
+/* ===================================================================
+     DARK MODE THEME OVERRIDES
+     =================================================================== */
+[data-bs-theme="dark"] {
+  color-scheme: dark;
+}
+[data-bs-theme="dark"] body {
+  background: #121212 !important;
+  color: #f8f9fa;
+}
+[data-bs-theme="dark"] .card {
+  background-color: #2b3035;
+  border-color: #495057;
+}
+[data-bs-theme="dark"] .card-body {
+  background: rgb(26, 26, 26) !important;
+}
+[data-bs-theme="dark"] .btn-outline-dark {
+  color: #f8f9fa;
+  border-color: #f8f9fa;
+}
+[data-bs-theme="dark"] .typing-cursor {
+  background-color: #fff;
+}
+[data-bs-theme="dark"] .skills-category {
+  background: #1a1a1a;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+[data-bs-theme="dark"] .skills-category h3 {
+  color: #ffffff;
+}
+[data-bs-theme="dark"] .skill-logo {
+  background: #3a3a3a;
+  border-color: #555;
+}
+[data-bs-theme="dark"] .skill-logo-wrapper:hover .skill-logo {
+  background: linear-gradient(135deg, #3a3a3a, #4a4a4a);
+}
+[data-bs-theme="dark"] .carousel-progress-track {
+  background: linear-gradient(135deg, #202020, #303030, #404040, #505050);
+}
+
+/* ===================================================================
+     RESPONSIVE MEDIA QUERIES
+     =================================================================== */
+@media (min-width: 992px) {
+  .Profile-Photo {
+    height: 40rem;
+  }
+  .Introduction {
+    min-height: 170px;
+  }
+}
+
+@media (max-width: 991px) {
+  .Profile-Photo {
+    height: 30rem;
+    border-radius: 80px;
+  }
+  .image-container {
+    border-radius: 80px;
+  }
+  .cardsize {
+    flex: 0 0 calc(50% - 10px) !important;
+    max-width: calc(50% - 10px) !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .Profile-Photo {
+    border-radius: 50px;
+  }
+  .image-container {
+    border-radius: 50px;
+  }
+  .circle-container,
+  .container {
+    text-align: center;
+  }
+  .skills-category h3::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .ButtonsContainer {
+    justify-content: center !important;
+  }
+  .MainButton {
+    min-width: 300px;
+  }
+  .skills-logos-container {
+    justify-content: center;
+    gap: 12px;
+  }
+  .skill-logo {
+    width: 45px;
+    height: 45px;
+  }
+  .carousel-container {
+    padding: 10px 12px;
+  }
+  .cardsize {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+  }
+  .carousel-track .card {
+    max-width: 450px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 576px) {
+  .Profile-Photo {
+    height: 25rem;
+    border-radius: 40px;
+  }
+  .image-container {
+    border-radius: 40px;
+  }
+  .skill-logo {
+    width: 40px;
+    height: 40px;
+  }
+}
