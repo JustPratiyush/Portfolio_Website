@@ -1,5 +1,14 @@
 [
   {
+    "title": "Neuroscience and UX Design",
+    "excerpt": "How understanding the brain can improve user experience design. Connecting cognitive science with practical design principles.",
+    "date": "Nov 20, 2024",
+    "readTime": "12 min read",
+    "image": "../assets/blogs/blog5.webp",
+    "tags": ["Neuroscience", "UX"],
+    "url": "../blog/neuroscience-and-ux.html"
+  },
+  {
     "title": "AI in Web Development",
     "excerpt": "Exploring how artificial intelligence is revolutionizing web development, from code generation to automated testing and beyond.",
     "date": "Dec 10, 2024",
@@ -34,14 +43,5 @@
     "image": "../assets/blogs/blog4.webp",
     "tags": ["Startup", "Business"],
     "url": "../blog/startup-lessons-learned.html"
-  },
-  {
-    "title": "Neuroscience and UX Design",
-    "excerpt": "How understanding the brain can improve user experience design. Connecting cognitive science with practical design principles.",
-    "date": "Nov 20, 2024",
-    "readTime": "12 min read",
-    "image": "../assets/blogs/blog5.webp",
-    "tags": ["Neuroscience", "UX"],
-    "url": "../blog/neuroscience-and-ux.html"
   }
 ]
