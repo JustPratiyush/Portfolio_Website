@@ -1,0 +1,47 @@
+[
+  {
+    "title": "AI in Web Development",
+    "excerpt": "Exploring how artificial intelligence is revolutionizing web development, from code generation to automated testing and beyond.",
+    "date": "Dec 10, 2024",
+    "readTime": "8 min read",
+    "image": "../assets/blogs/blog2.webp",
+    "tags": ["AI", "Future Tech"],
+    "url": "../blog/ai-in-web-development.html"
+  },
+  {
+    "title": "Modern CSS Techniques",
+    "excerpt": "Master the latest CSS features including Container Queries, CSS Grid, and modern layout techniques that will transform your designs.",
+    "date": "Dec 5, 2024",
+    "readTime": "6 min read",
+    "image": "../assets/blogs/blog3.webp",
+    "tags": ["CSS", "Design"],
+    "url": "../blog/modern-css-techniques.html"
+  },
+  {
+    "title": "Understanding Web Performance",
+    "excerpt": "Dive deep into web performance optimization techniques that can make your websites blazingly fast. Learn about Core Web Vitals and modern performance metrics.",
+    "date": "Dec 5, 2024",
+    "readTime": "5 min read",
+    "image": "../assets/blogs/blog1.webp",
+    "tags": ["Performance", "Web Dev"],
+    "url": "../blog/understanding-web-performance.html"
+  },
+  {
+    "title": "Startup Lessons Learned",
+    "excerpt": "Key insights from building products and understanding user behavior. What I've learned about entrepreneurship and product development.",
+    "date": "Nov 28, 2024",
+    "readTime": "10 min read",
+    "image": "../assets/blogs/blog4.webp",
+    "tags": ["Startup", "Business"],
+    "url": "../blog/startup-lessons-learned.html"
+  },
+  {
+    "title": "Neuroscience and UX Design",
+    "excerpt": "How understanding the brain can improve user experience design. Connecting cognitive science with practical design principles.",
+    "date": "Nov 20, 2024",
+    "readTime": "12 min read",
+    "image": "../assets/blogs/blog5.webp",
+    "tags": ["Neuroscience", "UX"],
+    "url": "../blog/neuroscience-and-ux.html"
+  }
+]

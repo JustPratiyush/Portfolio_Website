@@ -219,12 +219,35 @@
         document
           .getElementById("projects")
           ?.scrollIntoView({ behavior: "smooth" }),
-      viewAllBlogsBtn: () => (window.location.href = "blog/"),
-      viewAllProjectsBtn: () => (window.location.href = "blog/"), // Note: As per original, change to 'projects/' if needed
+      viewAllBlogsBtn: () => (window.location.href = "blogs/"),
+      viewAllProjectsBtn: () => (window.location.href = "projects/"),
     };
+    
+    // Add click handlers for the view all buttons
     for (const id in clickActions) {
-      document.getElementById(id)?.addEventListener("click", clickActions[id]);
+      const element = document.getElementById(id);
+      if (element) {
+        element.addEventListener("click", (e) => {
+          e.preventDefault();
+          clickActions[id]();
+        });
+      }
     }
+    
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      if (anchor.getAttribute('href') !== '#') {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({
+              behavior: 'smooth'
+            });
+          }
+        });
+      }
+    });
   }
 
   function initHoverSounds() {
