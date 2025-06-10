@@ -54,25 +54,20 @@ body {
 
 /* Navbar Styles */
 .navbar {
-  background-color: white;
+  background-color: white !important;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   padding: 0.75rem 0;
 }
 
 [data-bs-theme="dark"] .navbar {
-  background-color: #1a1a1a;
+  background-color: #1a1a1a !important;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
 .navbar-brand {
   font-weight: 600;
   font-size: 1.5rem;
-  background: var(--main-gradient);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  transition: var(--transition);
 }
 
 .nav-link {
@@ -93,13 +88,13 @@ body {
 }
 
 .nav-link::after {
-  content: '';
+  content: "";
   position: absolute;
   width: 0;
   height: 2px;
   bottom: 0;
   left: 50%;
-  background: var(--main-gradient);
+  background: var(--skill-gradient);
   transition: all 0.3s ease;
   transform: translateX(-50%);
 }
@@ -126,7 +121,8 @@ body {
 
 /* Smooth transition for navbar elements */
 .navbar * {
-  transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+  transition: color 0.3s ease, background-color 0.3s ease,
+    border-color 0.3s ease;
 }
 
 /* Section Headers */
@@ -778,14 +774,14 @@ footer .gradient-icon svg {
 
 .Togglecontainer {
   position: fixed;
-  right: 30px;
-  top: 30px;
+  right: 20px;
+  top: 70px;
   pointer-events: none;
 }
 .dark-mode {
   position: fixed;
-  top: 50px; /* center on toggle */
-  right: 50px; /* center on toggle */
+  top: 90px; /* center on toggle */
+  right: 40px; /* center on toggle */
   transform: translate(50%, -50%) scale(0);
   width: 350vmax;
   height: 350vmax;
