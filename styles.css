@@ -2,24 +2,16 @@
    BASE & GLOBAL STYLES
    =================================================================== */
 :root {
+  /* Color System */
   --primary-color: #4361ee;
   --secondary-color: #3f37c9;
   --accent-color: #4895ef;
   --text-color: #2b2d42;
   --light-bg: #f8f9fa;
   --dark-bg: #212529;
-  --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  --transition: all 0.3s ease;
-  --border-radius: 12px;
-}
+  --text-muted: #6c757d;
 
-[data-bs-theme="dark"] {
-  --text-color: #f8f9fa;
-  --light-bg: #212529;
-  --dark-bg: #f8f9fa;
-  --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-}
-:root {
+  /* Gradients */
   --main-gradient: linear-gradient(
     135deg,
     #ffffff,
@@ -28,8 +20,53 @@
     #9ee0ff
   );
   --skill-gradient: linear-gradient(90deg, #0c6dfd, #8533ff);
+
+  /* Shadows & Effects */
+  --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   --logo-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   --hover-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+
+  /* Spacing & Sizing */
+  --border-radius: 12px;
+  --transition: all 0.3s ease;
+  --card-image-height: 220px;
+}
+
+/* Dark Theme Overrides */
+[data-bs-theme="dark"] {
+  --text-color: #f8f9fa;
+  --light-bg: #212529;
+  --dark-bg: #f8f9fa;
+  --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  --logo-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  --text-muted: #adb5bd;
+}
+
+/* Global Resets */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
+}
+
+/* Base Typography */
+body {
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--light-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: var(--transition);
+  padding-top: 70px; /* Add padding to account for fixed navbar */
+}
+
+/* ===================================================================
+   BLOG CARD TEXT DECORATION RESET
+   =================================================================== */
+.blog-card-container * {
+  text-decoration: none !important;
 }
 
 @font-face {
@@ -57,15 +94,6 @@ body {
      =================================================================== */
 
 /* Profile Image Container */
-.position-relative {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-}
 
 .Profile-Photo {
   position: relative;
@@ -291,12 +319,17 @@ body {
 
 .section-subtitle {
   display: block;
-  color: var(--accent-color);
-  font-weight: 600;
   font-size: 1.1rem;
+  font-weight: 600;
+  background: var(--skill-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   margin-bottom: 0.5rem;
   text-transform: uppercase;
   letter-spacing: 2px;
+  display: inline-block;
+  position: relative;
 }
 
 .section-title {
@@ -353,30 +386,33 @@ main #projects-container > * {
   min-width: 320px; /* Ensures a minimum width before wrapping */
 }
 
-/* --- Card Base & Link Wrapper --- */
+/* Force remove all underlines in blog cards */
+.blog-card-container,
+.blog-card-container *,
+.blog-card-container a,
 .blog-card-link,
-.project-card a {
+.project-card-link {
   display: block;
   height: 100%;
   text-decoration: none;
-  border-radius: var(--border-radius); /* 12px */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: var(--border-radius);
+  transition: var(--transition);
 }
 
+/* Card Hover Effects */
 .blog-card-link:hover,
-.project-card:hover {
-  /* project-card is the hover target */
+.project-card-link:hover {
   transform: translateY(-5px);
   text-decoration: none;
 }
 
-/* The main card element */
+/* Card Element */
 .blog-card-link .card,
 .project-card {
   height: 100%;
   display: flex;
   flex-direction: column;
-  background: white;
+  background: var(--light-bg);
   border-radius: var(--border-radius);
   overflow: hidden;
   box-shadow: var(--card-shadow);
@@ -384,17 +420,18 @@ main #projects-container > * {
   border: 1px solid rgba(0, 0, 0, 0.08);
 }
 
-.project-card .position-relative,
-.blog-card-link .position-relative {
+/* Card Image Container */
+.card-img-container {
   overflow: hidden;
-  height: 220px;
-  display: block;
+  height: var(--card-image-height);
   position: relative;
 }
 
+/* Card Hover Effects */
 .blog-card-link:hover .card,
 .project-card:hover {
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  box-shadow: var(--hover-shadow);
+  transform: translateY(-5px);
 }
 
 /* --- Card Image --- */
@@ -416,90 +453,159 @@ main #projects-container > * {
   display: block;
 }
 
-/* Card image styles */
-.project-card .card-img-top,
-.blog-card-img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-  transition: transform 0.5s ease;
-  transform: scale(1);
-  margin: 0;
-  padding: 0;
-  display: block;
+/* Remove all text decoration from blog card */
+.blog-card-link,
+.blog-card-link *,
+.blog-card-link:hover,
+.blog-card-link:focus,
+.blog-card-link:active {
+  text-decoration: none !important;
 }
 
-.blog-card-link:hover .blog-card-img,
+/* Ensure no text decoration in card content */
+.blog-card-content,
+.blog-card-content * {
+  text-decoration: none !important;
+}
+
+/* Reset any link styles in blog cards */
+.blog-card-link a {
+  text-decoration: none !important;
+  transition: var(--transition);
+}
+
+/* Card image styles */
+.card-img-top {
+  width: 100%;
+  height: var(--card-image-height);
+  object-fit: cover;
+  border: none;
+  padding: 0;
+  margin: 0;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+/* Hover effect for images */
+.blog-card-link:hover .card-img-top,
 .project-card:hover .card-img-top {
   transform: scale(1.05);
 }
 
-/* --- Card Content --- */
-/* Override the global .card-body gradient for these cards */
-.blog-card .card-body,
-.project-card-content {
-  background: var(--light-bg) !important; /* Use a solid color */
+/* Ensure the image container doesn't overflow */
+.card-img-container {
+  overflow: hidden;
+  height: var(--card-image-height);
+  position: relative;
+  border-top-left-radius: var(--border-radius);
+  border-top-right-radius: var(--border-radius);
+}
+
+/* Maintain aspect ratio for logos and icons */
+.project-skill-logo {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  margin-right: 8px;
+  margin-bottom: 8px;
+  transition: transform 0.3s ease;
+}
+
+.project-skill-logo:hover {
+  transform: scale(1.2);
+}
+
+/* ===================================================================
+   CARD CONTENT STYLES
+   =================================================================== */
+/* Card body styles */
+.card-body {
+  background: transparent !important;
   padding: 1.5rem;
-  flex: 1;
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
 }
 
-/* --- Card Text Elements --- */
-.blog-card-date,
-.project-card-date {
-  /* Adding a class for project date for consistency */
-  color: #6c757d;
+/* Card meta information (date, read time) */
+.card-meta {
+  color: var(--text-muted, #6c757d);
   font-size: 0.85rem;
   margin-bottom: 0.5rem;
+  display: block;
 }
 
-.blog-card-title,
-.project-card-title {
-  font-size: 1.25rem; /* Consistent font size */
+/* Card title */
+.card-title {
+  font-size: 1.25rem;
   font-weight: 600;
-  margin-bottom: 0.75rem;
-  line-height: 1.4;
+  margin: 0.25rem 0 0.75rem;
   color: var(--text-color);
   transition: color 0.2s ease;
+  line-height: 1.4;
 }
 
-.blog-card-link:hover .card-title,
-.project-card:hover .project-card-title {
+/* Card description/excerpt */
+.card-text {
+  color: var(--text-muted, #6c757d);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+/* Card footer */
+.card-footer {
+  background: transparent;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 1rem 1.5rem;
+  margin-top: auto;
+  transition: border-color 0.3s ease;
+}
+
+/* Dark mode adjustments */
+[data-bs-theme="dark"] .card-footer {
+  border-top-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Hover effects */
+.card:hover .card-title {
   color: var(--primary-color);
 }
 
-.blog-card .card-text, /* From Bootstrap */
-.blog-card-excerpt,
-.project-card-description {
-  color: #6c757d;
-  margin-bottom: 1.5rem;
-  flex-grow: 1; /* This is key to push the footer down */
-  font-size: 0.95rem;
+.card:hover .card-footer {
+  border-top-color: rgba(67, 97, 238, 0.2);
 }
 
 /* --- Card Footer/Features --- */
 
-/* Keep Blog Tags as is, but ensure z-index */
+/* Blog Tags - Compact and Modern */
 .blog-tags {
   position: absolute;
-  bottom: 15px;
-  left: 15px;
-  right: 15px;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 2;
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  z-index: 2;
+  gap: 0.4rem;
+  max-width: calc(100% - 1.5rem);
 }
+
 .blog-tag {
-  background: rgba(255, 255, 255, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.95);
   color: #333;
-  font-size: 0.7rem;
-  font-weight: 500;
-  padding: 4px 10px;
-  border-radius: 12px;
-  backdrop-filter: blur(5px);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  font-size: 0.65rem;
+  font-weight: 600;
+  border-radius: 1rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  max-width: 100%;
+  text-transform: uppercase;
+  height: 1rem;
 }
 
 /* Keep Project Tech Stack */
@@ -626,13 +732,74 @@ section {
 /* ===================================================================
        REUSABLE COMPONENTS & UTILITIES
        =================================================================== */
+/* Main button styles */
 .MainButton {
   border-radius: 50px;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  transition: transform 1s ease, box-shadow 1s ease, background 1s ease;
+  border: none;
+  font-weight: 500;
 }
-.MainButton:hover {
+
+/* Primary button (Get in Touch) */
+.btn-primary.MainButton,
+.btn-outline-primary.MainButton {
+  background: var(--skill-gradient);
+  background-size: 200% auto;
+  border: none;
+  color: white;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.btn-primary.MainButton:hover,
+.btn-outline-primary.MainButton:hover {
+  background-position: right center;
   transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(4, 2, 2, 0.1);
+  box-shadow: 0 5px 15px rgba(12, 109, 253, 0.3);
+  color: white;
+}
+
+/* Add a subtle shine effect on hover */
+.btn-primary.MainButton::after,
+.btn-outline-primary.MainButton::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: rotate(30deg);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: -1;
+}
+
+.btn-primary.MainButton:hover::after,
+.btn-outline-primary.MainButton:hover::after {
+  opacity: 1;
+  animation: shine 1.5s infinite;
+}
+
+@keyframes shine {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+/* Outline button (Projects) */
+.btn-outline-dark.MainButton:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .NiceFont {
