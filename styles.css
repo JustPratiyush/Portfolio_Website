@@ -66,7 +66,6 @@ body {
 }
 
 .navbar-brand {
-  font-weight: 600;
   font-size: 1.5rem;
 }
 
@@ -269,7 +268,36 @@ body {
   transform: translateX(5px);
 }
 
-/* Projects Grid */
+/* Project Skill Logos */
+.project-skill-logo {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+  opacity: 0.8;
+}
+
+.project-skill-logo:hover {
+  transform: translateY(-2px);
+  opacity: 1;
+}
+
+[data-bs-theme="dark"] .project-skill-logo {
+  opacity: 0.9;
+}
+
+[data-bs-theme="dark"] .project-skill-logo:hover {
+  opacity: 1;
+}
+
+.tech-stack {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* Project Cards */
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));

@@ -25,86 +25,97 @@
   function initScrollAnimations() {
     const animateOnScroll = () => {
       // Only target elements in the blogs and projects sections
-      const elements = document.querySelectorAll('.blogs-grid .blog-card, .projects-grid .project-card, .section-header');
-      
-      elements.forEach(element => {
+      const elements = document.querySelectorAll(
+        ".blogs-grid .blog-card, .projects-grid .project-card, .section-header"
+      );
+
+      elements.forEach((element) => {
         const elementTop = element.getBoundingClientRect().top;
         const windowHeight = window.innerHeight;
-        
+
         if (elementTop < windowHeight - 100) {
-          element.style.opacity = '1';
-          element.style.transform = 'translateY(0)';
+          element.style.opacity = "1";
+          element.style.transform = "translateY(0)";
         }
       });
     };
 
     // Set initial styles only for blog and project cards in their respective sections
-    document.querySelectorAll('.blogs-grid .blog-card, .projects-grid .project-card').forEach(card => {
-      card.style.opacity = '0';
-      card.style.transform = 'translateY(30px)';
-      card.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
-    });
+    document
+      .querySelectorAll(".blogs-grid .blog-card, .projects-grid .project-card")
+      .forEach((card) => {
+        card.style.opacity = "0";
+        card.style.transform = "translateY(30px)";
+        card.style.transition =
+          "opacity 0.6s ease-out, transform 0.6s ease-out";
+      });
 
-    document.querySelectorAll('.section-header').forEach(header => {
-      header.style.opacity = '0';
-      header.style.transform = 'translateY(-20px)';
-      header.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+    document.querySelectorAll(".section-header").forEach((header) => {
+      header.style.opacity = "0";
+      header.style.transform = "translateY(-20px)";
+      header.style.transition =
+        "opacity 0.6s ease-out, transform 0.6s ease-out";
     });
 
     // Add scroll event listener with debounce for better performance
     let isScrolling;
-    window.addEventListener('scroll', () => {
-      window.clearTimeout(isScrolling);
-      isScrolling = setTimeout(animateOnScroll, 50);
-    }, { passive: true });
-    
+    window.addEventListener(
+      "scroll",
+      () => {
+        window.clearTimeout(isScrolling);
+        isScrolling = setTimeout(animateOnScroll, 50);
+      },
+      { passive: true }
+    );
+
     // Initial check in case elements are already in view
     animateOnScroll();
   }
 
-
   // Initialize hover effects
   function initHoverEffects() {
-    const cards = document.querySelectorAll('.blog-card, .project-card');
-    
-    cards.forEach(card => {
-      const link = card.querySelector('a');
-      const content = card.querySelector('.blog-card-content, .project-card-content');
-      
+    const cards = document.querySelectorAll(".blog-card, .project-card");
+
+    cards.forEach((card) => {
+      const link = card.querySelector("a");
+      const content = card.querySelector(
+        ".blog-card-content, .project-card-content"
+      );
+
       if (!link || !content) return;
-      
+
       // Add hover effect for touch devices
-      card.addEventListener('click', (e) => {
-        if (e.target.tagName === 'A' || e.target.closest('a')) return;
+      card.addEventListener("click", (e) => {
+        if (e.target.tagName === "A" || e.target.closest("a")) return;
         link.click();
       });
-      
+
       // Add keyboard navigation
-      card.setAttribute('tabindex', '0');
-      card.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
+      card.setAttribute("tabindex", "0");
+      card.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
           e.preventDefault();
           link.click();
         }
       });
     });
-    
+
     // Add hover effect for project card overlays
-    const projectCards = document.querySelectorAll('.project-card');
-    projectCards.forEach(card => {
-      const overlay = card.querySelector('.project-card-overlay');
+    const projectCards = document.querySelectorAll(".project-card");
+    projectCards.forEach((card) => {
+      const overlay = card.querySelector(".project-card-overlay");
       if (!overlay) return;
-      
-      card.addEventListener('mousemove', (e) => {
+
+      card.addEventListener("mousemove", (e) => {
         const rect = card.getBoundingClientRect();
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
-        
+
         overlay.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(67, 97, 238, 0.9), rgba(67, 97, 238, 0.7))`;
       });
-      
-      card.addEventListener('mouseleave', () => {
-        overlay.style.background = 'rgba(0, 0, 0, 0.7)';
+
+      card.addEventListener("mouseleave", () => {
+        overlay.style.background = "rgba(0, 0, 0, 0.7)";
       });
     });
   }
@@ -194,15 +205,6 @@
   }
 
   // -------------------------------------------------------------------
-  // CAROUSEL CONTROL
-  // -------------------------------------------------------------------
-
-  // Initialize carousels (simplified version without progress bars)
-  function initCarousels() {
-    // No additional carousel functionality needed for now
-  }
-
-  // -------------------------------------------------------------------
   // UI INTERACTIONS
   // -------------------------------------------------------------------
 
@@ -212,17 +214,30 @@
   }
 
   function initClickHandlers() {
+    // Directly attach click handlers to ensure they work
+    const viewAllBlogsBtn = document.getElementById('viewAllBlogsBtn');
+    if (viewAllBlogsBtn) {
+      viewAllBlogsBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.location.href = 'blogs/';
+      });
+    }
+
     const clickActions = {
-      contactBtn: () =>
-        (window.location.href = "mailto:pratiyushkuchhal@gmail.com"),
-      projectsScrollBtn: () =>
-        document
-          .getElementById("projects")
-          ?.scrollIntoView({ behavior: "smooth" }),
-      viewAllBlogsBtn: () => (window.location.href = "blogs/"),
-      viewAllProjectsBtn: () => (window.location.href = "projects/"),
+      contactBtn: () => {
+        window.location.href = "mailto:pratiyushkuchhal@gmail.com";
+      },
+      projectsScrollBtn: () => {
+        const projects = document.getElementById("projects");
+        if (projects) {
+          projects.scrollIntoView({ behavior: "smooth" });
+        }
+      },
+      viewAllProjectsBtn: () => {
+        window.location.href = "projects/";
+      },
     };
-    
+
     // Add click handlers for the view all buttons
     for (const id in clickActions) {
       const element = document.getElementById(id);
@@ -233,16 +248,16 @@
         });
       }
     }
-    
+
     // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      if (anchor.getAttribute('href') !== '#') {
-        anchor.addEventListener('click', function (e) {
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+      if (anchor.getAttribute("href") !== "#") {
+        anchor.addEventListener("click", function (e) {
           e.preventDefault();
-          const target = document.querySelector(this.getAttribute('href'));
+          const target = document.querySelector(this.getAttribute("href"));
           if (target) {
             target.scrollIntoView({
-              behavior: 'smooth'
+              behavior: "smooth",
             });
           }
         });
