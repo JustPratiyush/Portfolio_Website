@@ -196,6 +196,12 @@
           cursor.style.display = "none";
           if (index < typingParagraphs.length - 1) {
             setTimeout(() => animateParagraph(index + 1), 1000);
+          } else {
+            // Show the buttons after the last paragraph finishes typing
+            const buttonsContainer = document.querySelector('.ButtonsContainer');
+            if (buttonsContainer) {
+              buttonsContainer.classList.remove('hidden');
+            }
           }
         }
       }

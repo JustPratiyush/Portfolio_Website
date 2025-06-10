@@ -137,13 +137,14 @@
           class="row flex-lg-row-reverse align-items-center g-5 pt-5 hero-container"
         >
           <div class="col-10 col-sm-8 col-lg-6">
-            <div class="image-container hover-sound-trigger position-relative">
+            <div class="position-relative">
               <img
-                src="assets/images/ghibli.webp"
+                src="assets/images/ghibli.png"
                 class="d-block mx-lg-auto img-fluid Profile-Photo"
                 alt="Profile Photo"
+                loading="lazy"
               />
-              <div class="image-tooltip">Click to see my Reading List</div>
+              <div class="morphing-bg"></div>
             </div>
           </div>
           <div class="col-lg-6 HeroText">
@@ -171,27 +172,25 @@
               <p class="lead Typing">
                 I build for the web, but curiosity drives everything. From
                 digging into AI and Neuroscience to decoding startups and
-                behavior—I'm always connecting the dots. Balance comes through
-                the gym, yoga, and quiet moments. I'm in my early years but
-                things are moving really fast.
+                behavior—I'm always connecting the dots.
               </p>
               <p class="Typing mt-2">Let's work together!</p>
             </div>
             <br />
             <div
-              class="d-grid gap-2 d-md-flex justify-content-md-start ButtonsContainer"
+              class="d-grid gap-2 d-md-flex justify-content-md-start ButtonsContainer hidden"
             >
               <button
                 type="button"
                 id="contactBtn"
-                class="btn btn-primary btn-lg px-4 me-md-2 MainButton hover-sound-trigger"
+                class="btn btn-primary btn-lg px-4 me-md-2 MainButton"
               >
-                Contact Me
+                Get in Touch
               </button>
               <button
                 type="button"
                 id="projectsScrollBtn"
-                class="btn btn-outline-dark btn-lg px-4 MainButton hover-sound-trigger"
+                class="btn btn-outline-dark btn-lg px-4 MainButton"
               >
                 Projects
               </button>
@@ -213,60 +212,42 @@
             <div class="skills-category">
               <h3 class="fs-3 fw-light">Creative</h3>
               <div class="skills-logos-container">
-                <div
-                  class="skill-logo-wrapper hover-sound-trigger"
-                  data-skill="OpenAI"
-                >
+                <div class="skill-logo-wrapper" data-skill="OpenAI">
                   <img
                     src="/assets/logos/chatgpt.png"
                     alt="OpenAI"
                     class="skill-logo"
                   />
                 </div>
-                <div
-                  class="skill-logo-wrapper hover-sound-trigger"
-                  data-skill="Photoshop"
-                >
+                <div class="skill-logo-wrapper" data-skill="Photoshop">
                   <img
                     src="/assets/logos/photoshop.png"
                     alt="Photoshop"
                     class="skill-logo"
                   />
                 </div>
-                <div
-                  class="skill-logo-wrapper hover-sound-trigger"
-                  data-skill="Figma"
-                >
+                <div class="skill-logo-wrapper" data-skill="Figma">
                   <img
                     src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg"
                     alt="Figma"
                     class="skill-logo"
                   />
                 </div>
-                <div
-                  class="skill-logo-wrapper hover-sound-trigger"
-                  data-skill="Canva"
-                >
+                <div class="skill-logo-wrapper" data-skill="Canva">
                   <img
                     src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/canva/canva-original.svg"
                     alt="Canva"
                     class="skill-logo"
                   />
                 </div>
-                <div
-                  class="skill-logo-wrapper hover-sound-trigger"
-                  data-skill="Claude AI"
-                >
+                <div class="skill-logo-wrapper" data-skill="Claude AI">
                   <img
                     src="/assets/logos/claude.png"
                     alt="claude-Ai"
                     class="skill-logo"
                   />
                 </div>
-                <div
-                  class="skill-logo-wrapper hover-sound-trigger"
-                  data-skill="Google Gemini"
-                >
+                <div class="skill-logo-wrapper" data-skill="Google Gemini">
                   <img
                     src="/assets/logos/gemini.png"
                     alt="Google Gemini"
@@ -289,80 +270,56 @@
             <div class="skills-category">
               <h3 class="fs-3 fw-light">Programming</h3>
               <div class="skills-logos-container">
-                <div
-                  class="skill-logo-wrapper hover-sound-trigger"
-                  data-skill="HTML5"
-                >
+                <div class="skill-logo-wrapper" data-skill="HTML5">
                   <img
                     src="/assets/logos/html.webp"
                     alt="HTML5"
                     class="skill-logo"
                   />
                 </div>
-                <div
-                  class="skill-logo-wrapper hover-sound-trigger"
-                  data-skill="CSS"
-                >
+                <div class="skill-logo-wrapper" data-skill="CSS">
                   <img
                     src="/assets/logos/CSS.png"
                     alt="CSS"
                     class="skill-logo"
                   />
                 </div>
-                <div
-                  class="skill-logo-wrapper hover-sound-trigger"
-                  data-skill="JavaScript"
-                >
+                <div class="skill-logo-wrapper" data-skill="JavaScript">
                   <img
                     src="/assets/logos/JavaScript.png"
                     alt="JavaScript"
                     class="skill-logo"
                   />
                 </div>
-                <div
-                  class="skill-logo-wrapper hover-sound-trigger"
-                  data-skill="NPM"
-                >
+                <div class="skill-logo-wrapper" data-skill="NPM">
                   <img
                     src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/npm/npm-original-wordmark.svg"
                     alt="NPM"
                     class="skill-logo"
                   />
                 </div>
-                <div
-                  class="skill-logo-wrapper hover-sound-trigger"
-                  data-skill="React"
-                >
+                <div class="skill-logo-wrapper" data-skill="React">
                   <img
                     src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg"
                     alt="React"
                     class="skill-logo"
                   />
                 </div>
-                <div
-                  class="skill-logo-wrapper hover-sound-trigger"
-                  data-skill="C Language"
-                >
+                <div class="skill-logo-wrapper" data-skill="C Language">
                   <img
                     src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg"
                     alt="C Language"
                     class="skill-logo"
                   />
                 </div>
-                <div
-                  class="skill-logo-wrapper hover-sound-trigger"
-                  data-skill="Python"
-                >
+                <div class="skill-logo-wrapper" data-skill="Python">
                   <img
                     src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg"
                     alt="Python"
                     class="skill-logo"
                   />
                 </div>
-                <div
-                  class="skill-logo-wrapper hover-sound-trigger"
-                  data-skill="MySQL"
-                >
+                <div class="skill-logo-wrapper" data-skill="MySQL">
                   <img
                     src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azuresqldatabase/azuresqldatabase-original.svg"
                     alt="MySQL"
@@ -397,7 +354,7 @@
           <a
             href="blogs/"
             id="viewAllBlogsBtn"
-            class="btn btn-outline-primary btn-lg px-4 MainButton hover-sound-trigger"
+            class="btn btn-outline-primary btn-lg px-4 MainButton"
           >
             View All Blogs
           </a>
@@ -424,7 +381,7 @@
         <div class="text-center mt-4">
           <a
             href="projects/"
-            class="btn btn-outline-primary btn-lg px-4 MainButton hover-sound-trigger"
+            class="btn btn-outline-primary btn-lg px-4 MainButton"
           >
             View All Projects
           </a>
