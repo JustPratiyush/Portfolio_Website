@@ -171,14 +171,15 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 100%;
-  max-width: 380px;
-  height: 110%;
+  max-width: 450px;
+  width: 100%;
+  height: 120%;
   background: var(--skill-gradient);
   border-radius: 30px;
   z-index: 1;
   filter: blur(5px);
   opacity: 0.8;
-  animation: morph 15s ease-in-out infinite;
+  animation: morph 10s ease-in-out infinite;
   transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
   will-change: border-radius, transform;
 }
@@ -215,10 +216,11 @@ body {
   }
 
   .morphing-bg {
-    max-width: 340px;
-    height: 100%;
+    max-width: 400px;
+    width: 100%;
+    height: 120%;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%) scale(1.1);
   }
 
   .Profile-Photo {
@@ -842,7 +844,7 @@ section {
 }
 .Profile-Photo {
   border-radius: 100px;
-  height: 600px;
+  height: 500px;
   width: 100%;
   object-fit: cover;
 }
