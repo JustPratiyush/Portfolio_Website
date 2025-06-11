@@ -90,6 +90,87 @@ body {
 }
 
 /* ===================================================================
+   UNDER CONSTRUCTION TAG
+   =================================================================== */
+.construction-tag {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(135deg, #ff4d4d, #ff3333);
+  color: #ffffff;
+  padding: 8px 16px 8px 16px;
+  border-radius: 25px;
+  font-family: "Virgil", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 15px;
+  cursor: default;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  overflow: visible;
+  box-shadow: 0 4px 15px rgba(255, 77, 77, 0.25);
+  z-index: 1000;
+  min-width: 200px;
+}
+
+.construction-tag .tag-text {
+  position: relative;
+  z-index: 2;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  letter-spacing: 0.5px;
+  font-family: "Virgil", sans-serif;
+}
+
+.construction-tag .tag-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 4px 0;
+}
+
+.construction-tag .tag-hover-text {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(135deg, #ff4d4d, #ff3333);
+  color: #ffffff;
+  padding: 12px 18px;
+  border-radius: 0 0 12px 12px;
+  font-family: "Virgil", sans-serif;
+  font-size: 1rem;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  pointer-events: none;
+  white-space: normal;
+  box-shadow: 0 6px 20px rgba(230, 0, 0, 0.2);
+  z-index: 1001;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.construction-tag:hover {
+  border-radius: 12px 12px 0 0;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(255, 77, 77, 0.3);
+  background: linear-gradient(135deg, #ff4d4d, #ff3333);
+  margin-bottom: 60px;
+  padding-bottom: 8px;
+}
+
+.construction-tag:hover .tag-hover-text {
+  opacity: 1;
+  transform: translateY(0);
+  white-space: normal;
+  text-align: center;
+  line-height: 1.4;
+  padding: 15px 20px;
+}
+
+/* ===================================================================
      PROFILE IMAGE STYLES
      =================================================================== */
 
