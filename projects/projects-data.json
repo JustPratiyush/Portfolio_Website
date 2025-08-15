@@ -1,14 +1,5 @@
 [
   {
-    "title": "Vastu Vistar",
-    "description": "A comprehensive Vastu consultation platform with personalized recommendations and expert guidance.",
-    "date": "Oct 12, 2023",
-    "image": "../assets/Projects/vastu.webp",
-    "technologies": ["html5", "css3", "javascript", "tailwind"],
-    "demoUrl": "https://www.vastuvistar.com/",
-    "codeUrl": "#"
-  },
-  {
     "title": "HackYours",
     "description": "12-hour hackathon project; led design thinking, logo, UX/UI, and animations.",
     "date": "Dec 10, 2024",
