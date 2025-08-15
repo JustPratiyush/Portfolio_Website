@@ -2,7 +2,7 @@
   {
     "title": "HackYours",
     "description": "12-hour hackathon project; led design thinking, logo, UX/UI, and animations.",
-    "date": "Dec 10, 2024",
+    "date": "March 25, 2025",
     "image": "../assets/Projects/project2.webp",
     "technologies": ["figma", "photoshop"],
     "demoUrl": "https://hackyours.raghavkatta.xyz/",
@@ -11,7 +11,7 @@
   {
     "title": "TinDog",
     "description": "Landing page for a dog matchmaking app — like Tinder, but for pets.",
-    "date": "Jul 28, 2022",
+    "date": "Jan 28, 2025",
     "image": "../assets/Projects/project3.webp",
     "technologies": ["html5", "css3", "javascript"],
     "demoUrl": "https://tinder-but-for-dogs.vercel.app/",
@@ -20,7 +20,7 @@
   {
     "title": "Causeway",
     "description": "UX/UI concept for an app encouraging volunteering through community rewards.",
-    "date": "Mar 18, 2023",
+    "date": "Nov 18, 2024",
     "image": "../assets/Projects/project4.webp",
     "technologies": ["figma"],
     "demoUrl": "https://www.figma.com/design/qTIFz2HWxLFwJiPy1Xgz6J/Causeway-App?node-id=0-1",
@@ -29,7 +29,7 @@
   {
     "title": "AI Medical Assistant",
     "description": "AI tool offering potential diagnoses, causes, and recovery advice.",
-    "date": "Aug 03, 2023",
+    "date": "Sept 03, 2024",
     "image": "../assets/Projects/project5.webp",
     "technologies": ["python", "openai"],
     "demoUrl": "https://github.com/JustPratiyush/AI-Powered-Medical-Assistant",
